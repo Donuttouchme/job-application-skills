@@ -47,12 +47,24 @@ Create a todo per step.
    phrasing that worked, never for content.
 6. **Tailor** per [TAILORING.md](TAILORING.md), writing every line per
    [VOICE.md](VOICE.md).
-7. **Self-check** per [CHECKER.md](CHECKER.md); fix before showing anything.
-8. **Write `cv.html`** and iterate with the user. No PDF while iterating.
-9. **On approval** render `cv.pdf` via `scripts\make-pdf.ps1`, write `cv.txt`
-   (plain text, no letterhead, for ATS fields), and record in `application.md`
-   which CV was sent.
-10. **Offer the letter** — invoke `motivational-letter` only if the user says
+7. **Write `cv.html`, `cv.txt`, and `cv-trace.md`.** `cv.txt` is the finished
+   plain text (no letterhead, for ATS fields). Follow
+   `../motivational-letter/scripts/TRACE-FORMAT.md`: trace every non-empty line
+   as a fact, heading, or contact, and cite facts only to `profile.md`.
+8. **Check before showing any CV content.** Self-check per
+   [CHECKER.md](CHECKER.md), then resolve the sibling script path
+   `../motivational-letter/scripts/check.py` relative to this skill and run:
+   `python ../motivational-letter/scripts/check.py phrases cv.txt
+   --document-type cv --language <en|de-ch>` and
+   `python ../motivational-letter/scripts/check.py trace cv.txt --document-type
+   cv --trace cv-trace.md --profile ~/job-search/profile.md`. Fix every blocking
+   finding first.
+9. **Iterate with the user.** No PDF while iterating. On every regeneration,
+   rewrite `cv.html`, `cv.txt`, and `cv-trace.md`, then repeat both checks in
+   step 8 before showing the result.
+10. **On approval** render `cv.pdf` via `scripts\make-pdf.ps1` and record in
+    `application.md` which CV was sent.
+11. **Offer the letter** — invoke `motivational-letter` only if the user says
     yes. Applications wanting only a CV are common.
 
 ## When it will not fit one page
@@ -69,6 +81,11 @@ Give way in this order, and never silently:
 
 - **Content comes only from `profile.md`.** The posting supplies vocabulary and
   priorities, never facts.
+- **The shared checks are a display gate.** Never show a new or regenerated CV
+  until both `phrases` and `trace` exit 0 against the current `cv.txt` and
+  `cv-trace.md`. If `../motivational-letter/scripts/` is missing, stop and say:
+  "The motivational-letter skill is not installed beside cv-writer; install it
+  to run the required CV checks." Never skip or recreate the sibling checker.
 - **Every `[core]` bullet appears in every CV.** Non-`[core]` bullets may be
   selected among; `[core]` ones may not.
 - **Every listed skill must have visible evidence in the CV.** Where the
