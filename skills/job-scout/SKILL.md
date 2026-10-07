@@ -14,7 +14,9 @@ collect.
 
 | What | Where |
 |---|---|
-| Profile: evidence, languages, commute, direction | `~/job-search/profile.md` |
+| Profile: evidence, languages, direction | `~/job-search/profile.md` |
+| Search constraints: commute, working hours, licence, health parameters | `~/job-search/search.md` |
+| Profile history — never read | `~/job-search/profile-history.md` |
 | Applications already sent | `~/job-search/applications-log.md` |
 | Seen-ledger: every posting ever reviewed | `~/job-search/scout-seen.json` |
 | Company watchlist: career pages searched every run | `~/job-search/scout-companies.json` |
@@ -38,8 +40,9 @@ A posting makes the shortlist only when all four hold:
    the user's CEFR level in `profile.md`, or the team works in English. The
    jobs.ch `language_skills` level is a hint (observed 1–4); read the posting
    text before deciding.
-4. **Reachable and in scope:** within the commute rules in `profile.md`, outside
-   any lane the profile has closed, at a seniority the profile can back.
+4. **Reachable and in scope:** within the commute and working-hour limits in
+   `search.md`, outside any lane the profile has closed, at a seniority the
+   profile can back.
 
 Salary is reported, never filtered on, unless the profile sets a hard floor.
 
@@ -80,8 +83,9 @@ Salary is reported, never filtered on, unless the profile sets a hard floor.
 No `scout-config.json` yet → copy `scout-config.example.json` from this skill
 into the job-search folder and fill it with the user: home coordinates (a town
 centre is enough), the LinkedIn location and radius, search queries for their
-direction, title words to skip, places to skip. Derive the defaults from
-`profile.md` and confirm them rather than asking from zero.
+direction, title words to skip, places to skip. Derive commute and working-hour
+defaults from `search.md`, derive the direction from `profile.md`, and confirm
+them rather than asking from zero.
 
 ## Company watchlist
 

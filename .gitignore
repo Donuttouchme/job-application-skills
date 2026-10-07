@@ -1,6 +1,14 @@
 # Personal job-search data must never land here
 job-search/
 profile.md
+profile-history.md
+search.md
+profile.md.*
+profile-history.md.*
+search.md.*
+profile.md~
+profile-history.md~
+search.md~
 scout-config.json
 scout-seen.json
 scout-companies.json

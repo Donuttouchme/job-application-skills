@@ -1,10 +1,11 @@
 # Interview
 
-One question at a time. Write the file after each block, not at the end.
+One question at a time. Write the relevant file after each block, not at the
+end.
 
 The CVs already answer most factual questions — do not re-ask what was read from
 them. Interview only for what a CV structurally cannot hold: outcomes, reasons,
-money, and voice.
+money, practical constraints, and voice.
 
 ## Order
 
@@ -12,7 +13,7 @@ Blocks run in this order because each one's answers make the next easier.
 
 1. Confirm the CV extract
 2. Gaps in identity and eligibility
-3. Salary
+3. Salary and search constraints
 4. Narrative — what is wanted, why moving
 5. **Stories and their outcomes** ← the long block, and the valuable one
 6. Voice
@@ -34,11 +35,17 @@ unreadable CV is unread, and saying so costs nothing.
 Show what was read: contact details, positions, dates, education, skills,
 languages. Ask for corrections. Where several CV variants disagree, name the
 disagreement and ask which is right — do not silently prefer the newest.
+Apply every confirmed correction in place and write its Profile history entry
+in the same step.
 
-## 2–3. Identity, eligibility, salary
+## 2–3. Identity, eligibility, salary and search constraints
 
-Short and factual. Street address, notice period, earliest start, commute
-radius, salary expectation in CHF.
+Short and factual. Street address, notice period, earliest start and salary
+expectation in CHF belong in the Profile.
+
+Commute, working hours, licence and health parameters belong in Search
+constraints. For each one, ask how it may be stated in a letter or covering
+email. A temporary limitation is a current constraint, not a Never-claim rule.
 
 If the user resists naming a salary figure, say why it is needed: a Swiss
 posting that asks for it and gets no answer is a blocking defect, not a stylistic
@@ -99,19 +106,22 @@ Nothing there is checkable. The probe:
 - *What was it like before?* — "A release took a full engineer-day, and one
   person had to sit with it."
 - *How often did you release?* — "Every two weeks."
-- *How would someone have noticed if you hadn't done it?* — "We'd still be
-  losing a day each time, and only two people would know how to run it."
+- *What did you change?* — "I scripted the repetitive steps and documented the
+  failure modes."
+- *How did that change the full engineer-day?* — "A release still ran for much
+  of the day, but nobody had to sit with it for the full day."
 - *Is it still in use?* — "Yes, two years on, with a bigger team."
 
 The finished story:
 
 ```markdown
 ### 3. Release automation
-The release process cost a full engineer-day every two weeks and only two
-people could run it. I scripted it end to end and documented the failure modes.
-**Outcome:** release time fell from a day to under an hour, any team member can
-run it, and it has been in use for two years.
-**Evidences:** build tooling, automation, documentation, reducing bus factor
+The release process took a full engineer-day every two weeks, with one person
+attending it throughout. I scripted the repetitive steps and documented the
+failure modes.
+**Outcome:** nobody had to attend for the full day, and the process was still in
+use two years later with a bigger team.
+**Evidences:** automation, documentation
 ```
 
 **Nothing new was claimed.** No number was supplied that the user did not
@@ -124,6 +134,15 @@ Two finished stories clear the gate. Getting a third is better than getting a
 tenth unfinished one.
 
 ## 6. Voice
+
+Ask the user to write, without AI assistance, one fresh paragraph in English
+about what they did at their last employer and one in German about why they
+want this direction. Store only observations from the writing, not the
+paragraphs themselves.
+
+Mark a missing English or German paragraph `[NEEDED]` as a warning. It does not
+block the ready gate when genuine writing in another language or format already
+supports the Voice profile.
 
 Ask for **two or three pieces of text the user genuinely wrote**: a longer email
 to a colleague, a LinkedIn summary, a forum or issue comment, an older
@@ -148,14 +167,16 @@ Record what each item supports so the submission checklist can name it.
 
 ## 8. Do not mention
 
-*"Is there an employer, a technology, or a claim that must never appear in an
+*"Is there an employer, a technology, or a topic that must never appear in an
 application?"* One question, and it saves an awkward retraction later.
 
 ## Extend mode
 
 When another skill hits a gap, ask **only** about that gap. Give the context —
-which posting, which requirement, why it matters — then one question. Append,
-confirm, return.
+which posting, which requirement, why it matters — then one question. Put a new
+fact in the right document. To correct an existing fact, get explicit
+confirmation, replace it in place and write the dated Profile history entry in
+the same step. Never round a partial answer up. Then return.
 
 Two minutes. Do not use the opportunity to finish unrelated parts of the
 profile: an interruption that expands is an interruption the user learns to
