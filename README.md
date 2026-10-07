@@ -92,9 +92,10 @@ for inputs and exit codes. Run the shared check script's tests from the repo roo
 python -m unittest discover -s skills/motivational-letter/scripts/tests -v
 ```
 
-## Development checks
+## Development checks (optional)
 
-Install the local checks once from the repo root:
+Only for people changing the skills. The skills work without them, and nothing
+runs until you install them. To opt in, run once from the repo root:
 
 ```bash
 pip install pre-commit
