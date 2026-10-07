@@ -90,15 +90,13 @@ make it, and close on a moral. The user states the point and stops.
 
 ## Word list
 
-The banned stock phrases and AI tells live in one place:
-`..\motivational-letter\STYLE-EN.md` and `STYLE-DE-CH.md`, section *Banned*.
-They apply to CVs and letters alike. CV-specific additions:
-
-- EN: *spearheaded, orchestrated, championed, drove, leveraged, cutting-edge,
-  end-to-end, results-driven, cross-functional synergies, best-in-class*
-- DE: *maßgeblich, erfolgreich* (as filler before a verb),
-  *Verantwortung für die ganzheitliche …*, nominal chains such as *Durchführung
-  der Optimierung von …*: use the verb
+The single shared literal banned-phrase list, including the CV additions, is
+[`../motivational-letter/scripts/banned-phrases.txt`](../motivational-letter/scripts/banned-phrases.txt).
+English and German entries apply to CVs and letters alike. Run it through
+`python ../motivational-letter/scripts/check.py phrases <document.txt> --document-type cv --language en`
+(use `de-ch` for Swiss German). The list is found beside the script, independent
+of the working directory. Structural tells remain prose rules in the style
+files and above; nominal chains still need a verb rather than a string of nouns.
 
 ## The read-aloud test
 

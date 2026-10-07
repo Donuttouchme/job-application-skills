@@ -56,21 +56,19 @@ Cap sentence complexity at the CEFR level in `profile.md`.
 
 ## Banned
 
-Openers and stock phrases:
-- "I am writing to express my keen interest in …"
-- "I was excited to see your posting for …"
-- "passionate about", "proven track record", "dynamic team player"
-- "leverage", "utilise", "spearheaded", "robust", "seamless", "landscape"
-- "I believe I would be a great fit" — assert with evidence or drop it
+Literal banned phrases for both languages, CVs and letters live in
+[`scripts/banned-phrases.txt`](scripts/banned-phrases.txt), one UTF-8 phrase per
+line. Run the shared check:
 
-AI tells:
-- "In today's fast-paced world …"
+```sh
+python scripts/check.py phrases <document.txt> --document-type letter --language en
+```
+
+The script checks literal phrases case-insensitively; it does not judge sentence
+shape or repetition. These structural AI tells still need a prose review:
 - tricolons — "designed, built, and shipped" three times in one letter
 - "not only … but also"
 - "It's not just X — it's Y"
 - em-dash pile-ups
 - "Furthermore" / "Moreover" opening consecutive paragraphs
 - paragraphs of uniform length; real writing is uneven
-
-Worn closer:
-- "I look forward to hearing from you at your earliest convenience"

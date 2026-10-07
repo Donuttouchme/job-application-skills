@@ -41,9 +41,12 @@ other three — **never present a partial review as complete**.
 
 ## 3. Cliché and AI tells
 
-Load the banned list from the active style file, and check every rule in
-`..\cv-writer\VOICE.md` (staging, sentence openings, paragraph shape, the
-read-aloud test). Beyond that, the structural tells:
+Use the single shared list in `scripts/banned-phrases.txt` through
+`python scripts/check.py phrases <document.txt> --document-type letter --language en`
+(use `de-ch` for Swiss German). The script reports literal phrase matches with
+line numbers and blocks any `ß` in de-ch; it does not check traces. Also check
+every rule in `..\cv-writer\VOICE.md` (staging, sentence openings, paragraph
+shape, the read-aloud test). Beyond that, the structural tells:
 
 - tricolons — "planned, built, and delivered" three times in one letter
 - "not only … but also" / "nicht nur … sondern auch"
