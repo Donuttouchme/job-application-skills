@@ -25,6 +25,13 @@ collect.
 
 The folder can be moved: set `JOB_SEARCH_DIR` and the script follows it.
 
+## Lanes
+
+Search two lanes from `profile.md` → *Career narrative → What is wanted now*:
+**DevOps / Platform** is primary; **junior software engineer** is second.
+Second-lane postings only fill shortlist slots the primary lane leaves open.
+The shortlist is still at most five.
+
 ## The filter
 
 A posting makes the shortlist only when all four hold:
@@ -32,10 +39,9 @@ A posting makes the shortlist only when all four hold:
 1. **Evidence covers at least half the must-haves.** Count against what
    `profile.md` can prove, at its recorded strength: `strong` counts 1,
    `transferable` ½, `weak` ½, and `missing` 0.
-2. **Daily contact with the direction.** The work itself touches the direction
-   recorded in `profile.md` → *Career narrative → What is wanted now*, so every
-   working day builds toward it. A support role qualifies when the systems it
-   supports do.
+2. **Daily contact with the direction, per lane.** The work itself touches
+   the posting's lane, so every working day builds toward it. A support role
+   qualifies when the systems it supports do.
 3. **Language within reach.** The posting's language requirement is at or below
    the user's CEFR level in `profile.md`, or the team works in English. The
    jobs.ch `language_skills` level is a hint (observed 1–4); read the posting
@@ -71,13 +77,14 @@ Salary is reported, never filtered on, unless the profile sets a hard floor.
    line. A posting that fails any line is `rejected`, reason named.
 5. **Check `applications-log.md`**: a company already applied to is shown only
    with that fact stated.
-6. **Rank the survivors** by filter line 1; at equal score, transferable
-   evidence outranks weak. Then use line 2. Take the top five.
+6. **Rank the survivors within each lane** by filter line 1; at equal score,
+   transferable evidence outranks weak. Then use line 2. Take up to five from
+   the primary lane; fill only the remaining slots with the second lane.
 7. **Record every reviewed posting**, shown and rejected alike, in a JSON file
-   of `{id, source, company, title, url, verdict, reason}` and run
-   `python scripts/scout.py mark <file>`. The run is complete when the ledger
-   holds every candidate from steps 1–2; a posting left out will come back next
-   run.
+   of `{id, source, company, title, url, lane, verdict, reason}` and run
+   `python scripts/scout.py mark <file>`. Use the lane names above in `lane`.
+   The run is complete when the ledger holds every candidate from steps 1–2;
+   a posting left out will come back next run.
 
 ## First run
 
@@ -110,6 +117,7 @@ Per shortlisted posting:
 ```markdown
 ### <n>. <Title> — <Company>, <Place> (<km> km, published <date>)
 <url>
+**Lane:** <DevOps / Platform or junior software engineer>
 **Why this:** <one or two sentences: which evidence carries it and what the
 work builds toward>
 **Must-haves covered:** <x of y>. **Gap:** <the one thing to defend or learn>

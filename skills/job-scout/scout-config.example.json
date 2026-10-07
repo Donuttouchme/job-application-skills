@@ -1,5 +1,5 @@
 {
-  "_comment": "Copy to ~/job-search/scout-config.json and adapt. Example values: Bern, a junior DevOps / cloud search.",
+  "_comment": "Copy to ~/job-search/scout-config.json and adapt. Example values: Bern, DevOps / Platform primary and junior software engineer second.",
   "home": [46.948, 7.4474],
   "linkedin_location": "Bern, Switzerland",
   "linkedin_distance_miles": 40,
