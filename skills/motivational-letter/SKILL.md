@@ -76,32 +76,69 @@ Create a todo per step and work through them in order.
    [scripts/TRACE-FORMAT.md](scripts/TRACE-FORMAT.md). Trace every sentence;
    facts may cite only `profile.md`, `company.md`, `motivation.md`, or
    `search.md`.
-10. **Check before showing any draft.** Self-check against
-    [CHECKER.md](CHECKER.md), then resolve `scripts/check.py` relative to this
-    skill and run `python scripts/check.py phrases letter.txt --document-type
+10. **Run the deterministic checks before showing any draft.** Resolve
+    `scripts/check.py` relative to this skill and run
+    `python scripts/check.py phrases letter.txt --document-type
     letter --language <en|de-ch>` and `python scripts/check.py trace letter.txt
     --document-type letter --trace letter-trace.md --profile
     ~/job-search/profile.md --company company.md --motivation motivation.md
     --search ~/job-search/search.md`. Fix every blocking finding before showing
-    any letter content.
-11. **Iterate** in `letter.md`. Regenerate `letter.txt` and `letter-trace.md`
-    and rerun both checks after every change before showing the revision.
-    **Generate no PDF while iterating.**
-12. **On approval**, produce `letter.pdf` (`scripts/make-pdf.ps1`), `email.md`
+    any letter content; rewrite the document and trace together and repeat both
+    commands until both exit 0.
+11. **Launch the independent checker** as a fresh-context subagent, following
+    [Independent checker](#independent-checker). Present its findings; the user,
+    not the writer or checker, chooses between the two resolutions.
+12. **Iterate** in `letter.md`. Regenerate `letter.txt` and `letter-trace.md`
+    and rerun the complete pipeline in steps 10–11 after every change before
+    showing the revision. Apply only changes the user accepted. **Generate no
+    PDF while iterating.**
+13. **On approval**, produce `letter.pdf` (`scripts/make-pdf.ps1`), `email.md`
     (subject plus 3–4 sentences), and the dossier checklist: CV variant,
     Arbeitszeugnisse, diplomas. Regenerate the plain text and trace and rerun
-    both checks with the final outputs.
+    the complete pipeline with the final outputs.
 
 ## Check
 
-Follow [CHECKER.md](CHECKER.md). Inside an application directory, pick up
-`posting.md`, `company.md`, `fit.md`, and the CV variant automatically. With no
-posting, say that fit cannot be assessed and run the other three dimensions —
-never present a partial review as complete.
+Prepare or update `letter.txt` and `letter-trace.md`, run both commands in Write
+step 10 until they exit 0, then use the same fresh-context subagent in Write
+step 11. Inside an application directory, give it `posting.md`, `company.md`,
+`fit.md`, and the CV being submitted if it exists. With no posting, say that fit
+cannot be assessed and never present the review as complete.
 
 Report findings, let the user choose which to accept, apply **only those**. Copy
 `letter.md` to `letter.prev.md` first, then regenerate every output so they
-never diverge from the source.
+never diverge from the source, and rerun the complete pipeline.
+
+## Independent checker
+
+Use Claude Code's Task / subagent tool to launch a fresh-context subagent. Do
+not pass it the drafting conversation or the writer's reasoning. Give it this
+instruction, substituting the paths for the current installation and
+application and the style selected for the posting's language:
+
+> Review this finished letter independently. Read only these files:
+> - this skill's `CHECKER.md` and selected `STYLE-EN.md` or `STYLE-DE-CH.md`
+> - the sibling `cv-writer/VOICE.md`
+> - `~/job-search/profile.md` and `~/job-search/search.md`
+> - this application's `company.md`, `motivation.md`, `posting.md`, and `fit.md`
+> - this application's CV being submitted, if one exists
+> - this application's finished `letter.txt` and `letter-trace.md`
+>
+> Do not read any other file or use prior conversation. In particular, never
+> read `profile-history.md`, archive letters, the drafting conversation, or the
+> writer's reasoning. Apply every rule in `CHECKER.md` and the supplied voice
+> and style files. For every fact in the trace, compare the letter unit directly
+> with its cited excerpt and flag any unsupported escalation of scope, role,
+> magnitude, or ownership; the presence of a real excerpt is not enough. Check
+> consistency with the CV only when it was included. Return findings only, in
+> `CHECKER.md`'s output format. Treat each finding as a discrepancy rather than
+> a verdict and give both resolutions: the letter is wrong and must be
+> corrected, or the claim is true and `profile.md` under-records it. Do not edit
+> any file and do not choose a resolution for the user.
+
+If the environment has no Task / subagent tool, say so to the user, run these
+same checker instructions in the current session with exactly the same file
+limits, and state explicitly that the fallback check is not independent.
 
 ## Hard rules
 

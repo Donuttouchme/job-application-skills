@@ -51,21 +51,64 @@ Create a todo per step.
    plain text (no letterhead, for ATS fields). Follow
    `../motivational-letter/scripts/TRACE-FORMAT.md`: trace every non-empty line
    as a fact, heading, or contact, and cite facts only to `profile.md`.
-8. **Check before showing any CV content.** Self-check per
-   [CHECKER.md](CHECKER.md), then resolve the sibling script path
-   `../motivational-letter/scripts/check.py` relative to this skill and run:
+8. **Run the deterministic checks before showing any CV content.** Resolve the
+   sibling script path `../motivational-letter/scripts/check.py` relative to
+   this skill and run:
    `python ../motivational-letter/scripts/check.py phrases cv.txt
    --document-type cv --language <en|de-ch>` and
    `python ../motivational-letter/scripts/check.py trace cv.txt --document-type
    cv --trace cv-trace.md --profile ~/job-search/profile.md`. Fix every blocking
-   finding first.
-9. **Iterate with the user.** No PDF while iterating. On every regeneration,
-   rewrite `cv.html`, `cv.txt`, and `cv-trace.md`, then repeat both checks in
-   step 8 before showing the result.
-10. **On approval** render `cv.pdf` via `scripts\make-pdf.ps1` and record in
+   finding, rewrite the document and trace together, and repeat both commands
+   until both exit 0.
+9. **Launch the independent checker** as a fresh-context subagent, following
+   [Independent checker](#independent-checker). Present its findings; the user,
+   not the writer or checker, chooses between the two resolutions.
+10. **Iterate with the user.** No PDF while iterating. On every regeneration,
+   rewrite `cv.html`, `cv.txt`, and `cv-trace.md`, then repeat the complete
+   pipeline in steps 8–9 before showing the result. Apply only changes the user
+   accepted.
+11. **On approval** render `cv.pdf` via `scripts\make-pdf.ps1` and record in
     `application.md` which CV was sent.
-11. **Offer the letter** — invoke `motivational-letter` only if the user says
+12. **Offer the letter** — invoke `motivational-letter` only if the user says
     yes. Applications wanting only a CV are common.
+
+## Check
+
+For an existing CV, prepare or update `cv.txt` and `cv-trace.md`, run both
+commands in Write step 8 until they exit 0, then use the same fresh-context
+subagent in Write step 9. Present its findings and let the user decide; apply
+only accepted changes, regenerate every output, and rerun the complete
+pipeline.
+
+## Independent checker
+
+Use Claude Code's Task / subagent tool to launch a fresh-context subagent. Do
+not pass it the drafting conversation or the writer's reasoning. Give it this
+instruction, substituting the paths for the current installation and
+application:
+
+> Review this finished CV independently. Read only these files:
+> - this skill's `CHECKER.md` and `VOICE.md`
+> - `~/job-search/profile.md`
+> - this application's `posting.md` and `fit.md`
+> - this application's letter, if one exists
+> - this application's finished `cv.txt` and `cv-trace.md`
+>
+> Do not read any other file or use prior conversation. In particular, never
+> read `profile-history.md`, `search.md`, the drafting conversation, or the
+> writer's reasoning. Apply every rule in `CHECKER.md`. For every fact in the
+> trace, compare the CV unit directly with its cited excerpt and flag any
+> unsupported escalation of scope, role, magnitude, or ownership; the presence
+> of a real excerpt is not enough. Check consistency with the letter only when
+> it was included. Return findings only, in `CHECKER.md`'s output format. Treat
+> each finding as a discrepancy rather than a verdict and give both
+> resolutions: the CV is wrong and must be corrected, or the claim is true and
+> `profile.md` under-records it. Do not edit any file and do not choose a
+> resolution for the user.
+
+If the environment has no Task / subagent tool, say so to the user, run these
+same checker instructions in the current session with exactly the same file
+limits, and state explicitly that the fallback check is not independent.
 
 ## When it will not fit one page
 

@@ -18,6 +18,17 @@ against an existing CV.
 | Understatement | hedging verbs where the profile records ownership | 🟡 |
 | Voice | every line passes [VOICE.md](VOICE.md): concrete object, plain verb, no evaluative adjective about the user, uneven bullet shape, nothing from the word lists | 🟡 per line; 🔴 when the Profile paragraph is an adjective stack or every bullet shares one template |
 
+## Trace semantics
+
+For every fact in `cv-trace.md`, compare the whole CV unit with the cited
+excerpt, not merely the source file. A real, verbatim excerpt does not make an
+inflated line accurate. The excerpt must support the unit without escalating
+its scope, the user's role, or the magnitude of the work or outcome. In
+particular, do not upgrade participation to leadership, contribution to
+ownership, individual use to team-wide impact, or a project to a programme.
+Report any such mismatch as a discrepancy under the rules below, not as proof
+that either the CV or the profile is false.
+
 ## A finding is a discrepancy, not a verdict
 
 The checker can tell that the CV and `profile.md` disagree. It cannot tell which

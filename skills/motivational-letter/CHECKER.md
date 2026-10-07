@@ -1,8 +1,9 @@
 # Checker
 
 Four dimensions. Every finding quotes the letter, names the problem, carries a
-severity, and proposes a rewrite. Used both by check mode and by write step 9
-(self-check before showing a draft).
+severity, and proposes a rewrite. Used by the independent checker in both check
+mode and the write pipeline. Also read the selected `STYLE-EN.md` or
+`STYLE-DE-CH.md` and `..\cv-writer\VOICE.md` supplied for the review.
 
 ## Severity
 
@@ -41,12 +42,10 @@ other three — **never present a partial review as complete**.
 
 ## 3. Cliché and AI tells
 
-Use the single shared list in `scripts/banned-phrases.txt` through
-`python scripts/check.py phrases <document.txt> --document-type letter --language en`
-(use `de-ch` for Swiss German). The script reports literal phrase matches with
-line numbers and blocks any `ß` in de-ch; it does not check traces. Also check
-every rule in `..\cv-writer\VOICE.md` (staging, sentence openings, paragraph
-shape, the read-aloud test). Beyond that, the structural tells:
+The writer runs the single shared list in `scripts/banned-phrases.txt` before
+launching the checker. Also check every rule in `..\cv-writer\VOICE.md`
+(staging, sentence openings, paragraph shape, the read-aloud test). Beyond
+that, the structural tells:
 
 - tricolons — "planned, built, and delivered" three times in one letter
 - "not only … but also" / "nicht nur … sondern auch"
@@ -54,9 +53,6 @@ shape, the read-aloud test). Beyond that, the structural tells:
 - an opening that describes the act of applying rather than saying something
 - a closing sentence that could be pasted into any other letter
 - uniform paragraph lengths — real writing is uneven
-
-If the archive letters were AI-assisted, they are the calibration set: if this
-dimension finds nothing in them, it is too lenient.
 
 ### Authenticity
 
@@ -74,12 +70,22 @@ The operative test, applied sentence by sentence:
 > it?*
 
 - Verifiable claim — number, employer, technology, duration, outcome, company
-  fact — not traceable to `profile.md` or `company.md` → 🔴
+  fact or practical limit — not traceable to an allowed source (`profile.md`,
+  `company.md`, `motivation.md`, or `search.md`) → 🔴
 - Adjective with no evidence behind it ("umfassende Erfahrung") → 🟡
 - **Inference** from profile evidence ("Kubernetes → comfortable with
   containerised deployments") → 🟡, always flagged so the user decides. Allowed,
   never silent.
 - Motivation, interest, and framing need no source. Do not flag them.
+
+For every fact in `letter-trace.md`, compare the whole letter unit with its
+cited excerpt, not merely the source file. A real, verbatim excerpt does not
+make an inflated sentence accurate. The excerpt must support the unit without
+escalating its scope, the user's role, or the magnitude of the work or outcome.
+In particular, do not upgrade participation to leadership, contribution to
+ownership, individual use to team-wide impact, or a project to a programme.
+Report any such mismatch as a discrepancy under the rules below, not as proof
+that either the letter or its source is false.
 
 ### A finding is a discrepancy, not a verdict
 
@@ -97,16 +103,13 @@ confirms the second, hand it to `job-profile` in extend mode.
 ### Cross-document consistency
 
 A claim can be sourced and still be wrong, because it contradicts something
-already sent. Check the letter against the CV variant being submitted and
-against `archive\letters\`:
+already prepared. Check the letter against the CV being submitted when it was
+provided:
 
 - the letter names a technology the CV names differently (`C++` where every CV
   says `C#`) → 🔴
 - a count differs between letter and CV ("fünf parallele Projekte" where the
   CV lists three) → 🔴
-- a self-assessment differs from an earlier letter — language level, years of
-  experience → 🟡, and say which letters differ and on what dates. Improvement
-  over time is legitimate; the user decides. Never silently "correct" it.
 
 ## Output
 
@@ -116,7 +119,10 @@ against `archive\letters\`:
 ### 🔴 Unsupported claim
 > "in einem Team von über 30 Entwicklern"
 Not in profile.md, which records teams of 6–8. An interviewer will ask.
-**Suggested:** "in einem Team von acht Entwicklern"
+**Either:** the letter is wrong — use the supported team size or remove the
+claim.
+**Or:** the larger team is true and profile.md under-records it — say so and
+have the profile corrected properly.
 ```
 
 Then let the user pick. Apply **only** what was accepted. Copy `letter.md` to
