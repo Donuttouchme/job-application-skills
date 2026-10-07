@@ -92,6 +92,33 @@ for inputs and exit codes. Run the shared check script's tests from the repo roo
 python -m unittest discover -s skills/motivational-letter/scripts/tests -v
 ```
 
+## Development checks
+
+Install the local checks once from the repo root:
+
+```bash
+pip install pre-commit
+pre-commit install
+```
+
+This installs both commit and push hooks. Commits run lightweight whitespace,
+EOF, JSON, merge-conflict, large-file, private-key and personal-data checks,
+plus Ruff linting (no formatting). The Python unit tests run only at push,
+when Python files or `skills/motivational-letter/scripts/` change.
+
+Keep private names, addresses and other identifying text in
+`.git/info/personal-patterns`, one literal per line; blank lines and lines
+starting with `#` are ignored. Matching is case-insensitive. This file stays
+local and must never be committed. In a linked worktree, locate it with
+`git rev-parse --git-path info/personal-patterns`. The guard also blocks private
+directories and common personal-data and token patterns without this file;
+findings are masked.
+
+Run all checks manually with `pre-commit run --all-files` and
+`pre-commit run --hook-stage pre-push --all-files`. Use `git commit --no-verify`
+only as a last-resort escape, after reviewing the failure; never use it to
+commit personal data.
+
 ## Requirements
 
 - Claude Code with web fetch enabled for postings and company research, and a

@@ -17,7 +17,7 @@ import time
 import unicodedata
 import urllib.parse
 import urllib.request
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta
 from pathlib import Path
 
 try:  # Windows certificate store; Python's bundled one rejects some Workday chains
