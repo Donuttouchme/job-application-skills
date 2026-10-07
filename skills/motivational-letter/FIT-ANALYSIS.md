@@ -4,8 +4,9 @@ Turns a posting into an approved argument before a single sentence is drafted.
 Output goes to `fit.md` in the application directory.
 
 `cv-writer` and `motivational-letter` share this file. Whichever runs first
-writes `fit.md`; the second reads it and does **not** redo it unless the posting
-changed. That is what keeps the CV and the letter telling one story.
+writes `fit.md`; the second reuses it only when both the posting and the Profile
+(`profile.md`) predate it. If either has changed since the analysis, redo it.
+That is what keeps the CV and the letter telling one story.
 
 ## 1. Decompose the posting
 
@@ -25,9 +26,17 @@ Read `profile.md`. For each requirement, exactly one class:
 
 | Class | Condition |
 |---|---|
-| **strong** | a **named story or position** demonstrates it directly, with a measurable outcome |
-| **weak** | related but distant: different technology, smaller scale, older than ~4 years, **or a skill listed with no story behind it** |
+| **strong** | a named story or position demonstrates it directly, with an outcome |
+| **transferable** | proven work in another domain that served the same purpose the requirement asks for |
+| **weak** | related but distant (not transferable) — different technology, smaller scale, older than ~4 years, a completed personal project, **or a skill with no story behind it** |
 | **missing** | nothing in the profile |
+
+Classify transferable evidence per posting requirement, recording the original
+domain and the shared purpose. It keeps the Command level of the original work;
+it never implies depth in the new tool. Command is independent of evidence class.
+
+In-progress items (planned certifications, certifications under way, unfinished
+projects) are never evidence.
 
 The listed-skill-without-a-story case is the one that goes wrong. A skill in a
 list is not evidence — it is a claim. Classify it **weak**.
@@ -44,6 +53,9 @@ Every row carries one:
 
 ## 4. `fit.md` format
 
+For each transferable row, label the **original domain** and **shared purpose**
+in Evidence from profile, and record the original work's Command level there.
+
 ```markdown
 # Fit — <Company>, <Role>
 
@@ -53,6 +65,7 @@ Posting: <url or "pasted">   Analysed: <date>
 | Requirement (quoted) | Evidence from profile | Class | Action |
 |---|---|---|---|
 | "3+ Jahre Erfahrung mit Java" | Backend rewrite at X, 4 yrs, cut p95 latency 40% | strong | lead argument |
+| "Erfahrung mit CI/CD" | Release gates reduced failed releases; original domain: automotive; shared purpose: controlled releases; Command: discuss | transferable | mention in passing |
 | "Kenntnisse in Kubernetes" | listed as a skill, no story | weak | mention in passing |
 | "Stipendium…" | — | missing | acknowledge and defuse |
 

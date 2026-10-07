@@ -30,8 +30,8 @@ The folder can be moved: set `JOB_SEARCH_DIR` and the script follows it.
 A posting makes the shortlist only when all four hold:
 
 1. **Evidence covers at least half the must-haves.** Count against what
-   `profile.md` can prove, at its recorded strength. A must-have met only by a
-   `weak` skill counts half.
+   `profile.md` can prove, at its recorded strength: `strong` counts 1,
+   `transferable` ½, `weak` ½, and `missing` 0.
 2. **Daily contact with the direction.** The work itself touches the direction
    recorded in `profile.md` → *Career narrative → What is wanted now*, so every
    working day builds toward it. A support role qualifies when the systems it
@@ -71,7 +71,8 @@ Salary is reported, never filtered on, unless the profile sets a hard floor.
    line. A posting that fails any line is `rejected`, reason named.
 5. **Check `applications-log.md`**: a company already applied to is shown only
    with that fact stated.
-6. **Rank the survivors** by filter line 1, then line 2. Take the top five.
+6. **Rank the survivors** by filter line 1; at equal score, transferable
+   evidence outranks weak. Then use line 2. Take the top five.
 7. **Record every reviewed posting**, shown and rejected alike, in a JSON file
    of `{id, source, company, title, url, verdict, reason}` and run
    `python scripts/scout.py mark <file>`. The run is complete when the ledger

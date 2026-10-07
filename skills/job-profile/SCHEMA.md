@@ -119,9 +119,17 @@ prevent.
 
 | Class | Condition |
 |---|---|
-| **strong** | a named story or position demonstrates it, with an outcome |
-| **weak** | related but distant — different technology, smaller scale, older than ~4 years, **or a skill with no story behind it** |
-| **missing** | claimed nowhere |
+| **strong** | a named story or position demonstrates it directly, with an outcome |
+| **transferable** | proven work in another domain that served the same purpose the requirement asks for |
+| **weak** | related but distant (not transferable) — different technology, smaller scale, older than ~4 years, a completed personal project, **or a skill with no story behind it** |
+| **missing** | nothing in the profile |
+
+Classify transferable evidence per posting requirement, recording the original
+domain and the shared purpose. It keeps the Command level of the original work;
+it never implies depth in the new tool. Command is independent of evidence class.
+
+In-progress items (planned certifications, certifications under way, unfinished
+projects) are never evidence.
 
 **Command — what could be defended in an interview:**
 
@@ -141,7 +149,7 @@ letter must not build a **lead argument** on it, and neither document may imply
 depth. Nothing is hidden; the claim is simply sized to what an interview would
 bear.
 
-`motivational-letter` applies these same three classes when scoring a posting's
+`motivational-letter` applies these same four classes when scoring a posting's
 requirements. The definitions are deliberately repeated in both skills; keep
 them identical if either changes.
 

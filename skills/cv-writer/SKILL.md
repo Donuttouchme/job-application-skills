@@ -38,7 +38,9 @@ Create a todo per step.
 3. **Pick the language** from the posting.
 4. **Fit analysis → `fit.md`**, following
    `..\motivational-letter\FIT-ANALYSIS.md` — one shared method, deliberately
-   not reimplemented here. Reuse an existing `fit.md` for this posting.
+   not reimplemented here. Reuse an existing `fit.md` for this posting only
+   when both the posting and the Profile (`profile.md`) predate it; otherwise
+   redo the analysis.
 5. **Build content from `profile.md`, layout from `assets\cv-en.html` or
    `assets\cv-de.html`.** Never start from an existing variant in `cv\`: that
    inherits its selections and any drift it carries. Consult those variants for

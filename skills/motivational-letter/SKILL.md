@@ -51,8 +51,9 @@ Create a todo per step and work through them in order.
 4. **Pick the language** from the posting; load `STYLE-DE-CH.md` or
    `STYLE-EN.md`. Swiss company with an English posting → ask.
 5. **Fit analysis → `fit.md`**, per [FIT-ANALYSIS.md](FIT-ANALYSIS.md). Reuse an
-   existing `fit.md` if `cv-writer` already wrote one for this posting. Present
-   it and get approval before drafting. All must-haves weak or missing → say so
+   existing `fit.md` for this posting only when both the posting and the
+   Profile (`profile.md`) predate it; otherwise redo the analysis. Present it
+   and get approval before drafting. All must-haves weak or missing → say so
    plainly first.
 6. **Recommend a CV variant** from `cv\`, read it, and write to **complement**
    it — never contradicting, never restating.
