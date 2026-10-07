@@ -12,6 +12,7 @@ against an existing CV.
 | Escalation | no rephrase raises scope, role or magnitude | 🔴 |
 | Evidence visibility | every listed skill, and every domain in the role line, has visible evidence in this CV; the Profile paragraph implies no professional use of a `weak` skill | 🔴 |
 | Seniority | no `Senior` / `Lead` / `Principal` / `Head of` the profile does not support | 🔴 |
+| In-progress items | date and status required; never evidence; no `certified` before the result or `completed` before verified completion; projects public and labelled personal | 🔴 |
 | Consistency | against the letter in the same directory, and against the profile's CEFR levels | 🔴 |
 | Format | one page; single column; no images; no tables; real text | 🔴 |
 | Understatement | hedging verbs where the profile records ownership | 🟡 |

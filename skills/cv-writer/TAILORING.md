@@ -7,7 +7,7 @@ make that mechanical rather than a judgement call made under page pressure.
 
 | Section | May change | Must not change |
 |---|---|---|
-| Role line under the name | rewritten toward the posting's vocabulary | a seniority marker the profile does not support; a domain with no visible evidence |
+| Role line under the name | nothing until the owner changes it | fixed to `Software Engineer`; no tailoring to the posting |
 | Profile / Kurzprofil | rewritten per position; chooses which career thread leads | new facts; anything absent from `profile.md`; implying professional use of a `weak` skill |
 | Technical Skills | order of rows, order within a row | adding a skill not in the profile; listing one whose evidence is not visible in this CV |
 | Professional Experience | bullet **wording** and order; selection among non-`[core]` bullets | dropping a **`[core]`** bullet; dates, titles, employers; what happened |
@@ -24,10 +24,16 @@ selection is normal and everyone does it.
 
 **1. Emphasis and vocabulary may change; scope and role may not.**
 
-> "Built internal automation tools in C#"
-> → *"Developed C# tooling that removed manual steps from the engineering
-> workflow"* — same fact, the posting's language. **Fine.**
-> → *"Led the automation strategy"* — promotes the role. **Not fine.**
+These generalised pairs come from real corrections. Inflation consistently
+runs toward ownership, so that is the first direction to check.
+
+| Bad | Good |
+|---|---|
+| "Designed a security function" when there was no hands-on work on it | Omit it. |
+| `"Led the migration to <tool>"` when among the first in the team to switch | `"Among the first in the team to switch to <tool>"`, only where it earns its space. |
+| "Programs" for what were projects — scope inflation outside automotive | "Projects". |
+| "Resolved complex production defects" | "Fixed defects from ordinary tickets raised by the internal test team, including on already-released software". |
+| "Built internal automation tools to streamline workflows" | Small scripts that saved one person about an hour a week, no longer in use; not a tooling-impact claim. At most, evidence that the language was used professionally. |
 
 **2. Mirror the posting's vocabulary only between genuine synonyms.** If the
 posting says `CI/CD pipelines` and the work was release scripting, do not
@@ -49,14 +55,21 @@ that is 🟡: visible, never blocking. The asymmetry is deliberate. Overstating
 misleads the employer and collapses at interview; understating only costs the
 user, who may have chosen it.
 
-**5. The role line: no seniority inflation, evidence must be visible.** The line
-under the name is positioning, not a title claim — `Software Engineer – Backend`
-where the held title was `Feature Owner` is normal and read as such by everyone.
-What it may not carry: `Senior` / `Lead` / `Principal` / `Head of` unsupported
-by the profile, or a domain whose evidence is not visible in this CV.
+**5. The role line is fixed to `Software Engineer` until the owner changes it.**
+The line under the name is positioning, not a title claim; do not tailor it
+to the posting. The no-seniority-inflation rule still applies: `Senior` /
+`Lead` / `Principal` / `Head of` unsupported by the profile promotes the role.
+A domain whose evidence is not visible in this CV is likewise unsupported.
 
 **6. The interviewer test.** *Can this line be asked about, and answered with a
 source?* Identical to the letter's rule, deliberately.
+
+## In-progress items
+
+A planned certification or unfinished project is never evidence. It may appear
+only with its date and status, for example `exam planned January 2027`. Never
+write `certified` before the result, or `completed` before completion is
+verified. A project may appear only once it is public and labelled as personal.
 
 ## Where the profile is the thing to fix
 
