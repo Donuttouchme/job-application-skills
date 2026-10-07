@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Curriculum Vitae – {{NAME}}</title>
+<!--
+  Canonical CV template. The CSS is taken unchanged from the user's own
+  September-generation variants, which are known to render one A4 page.
+
+  ATS constraints - binding, do not "improve" these away:
+    single column, no images, no tables, real text.
+  The .job-head flex row is a title/date pair, not a column layout: document
+  order stays title-then-date, so text extraction is unaffected.
+-->
+<style>
+  @page { size: A4; margin: 10mm 14mm 9mm 14mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Calibri, "Segoe UI", Arial, sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.26;
+    color: #1c1c1c;
+    margin: 0;
+  }
+  .name {
+    font-size: 20pt;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #0b3d62;
+    margin: 0;
+  }
+  .role {
+    font-size: 10.5pt;
+    color: #444;
+    margin: 1px 0 4px 0;
+    font-weight: 600;
+  }
+  .contact { font-size: 9pt; color: #555; }
+  .header {
+    border-bottom: 2px solid #0b3d62;
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-size: 10pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #0b3d62;
+    border-bottom: 1px solid #cdd6dd;
+    padding-bottom: 2px;
+    margin: 9px 0 4px 0;
+  }
+  p { margin: 0 0 4px 0; }
+  .summary { margin-bottom: 2px; text-align: left; }
+  .job { margin-bottom: 5px; }
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; }
+  .job-title { font-weight: 700; }
+  .job-title .emp { font-weight: 400; color: #333; }
+  .job-date { font-size: 8.5pt; color: #555; white-space: nowrap; padding-left: 10px; }
+  .company { font-size: 9.5pt; color: #0b3d62; font-weight: 600; margin: 6px 0 1px 0; }
+  ul { margin: 1px 0 3px 0; padding-left: 15px; }
+  li { margin-bottom: 1px; }
+  .skill-row { margin-bottom: 2px; }
+  .skill-cat { font-weight: 700; color: #333; }
+  .link { color: #0b3d62; }
+  .note { font-style: italic; color: #444; margin: 3px 0 2px 0; }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <p class="name">{{NAME}}</p>
+    <p class="role">{{ROLE_LINE}}</p>
+    <div class="contact">{{CONTACT}}</div>
+  </div>
+
+  <h2>Profile</h2>
+  <p class="summary">{{PROFILE}}</p>
+
+  <h2>Technical Skills</h2>
+  {{SKILL_ROWS}}
+
+  <h2>Professional Experience</h2>
+  {{EXPERIENCE}}
+
+  <h2>Projects</h2>
+  {{PROJECTS}}
+
+  <h2>Education</h2>
+  {{EDUCATION}}
+
+  <h2>Languages</h2>
+  <div class="skill-row">{{LANGUAGES}}</div>
+
+</body>
+</html>

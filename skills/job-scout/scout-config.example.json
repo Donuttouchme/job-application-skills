@@ -1,0 +1,18 @@
+{
+  "_comment": "Copy to ~/job-search/scout-config.json and adapt. Example values: Bern, a junior DevOps / cloud search.",
+  "home": [46.948, 7.4474],
+  "linkedin_location": "Bern, Switzerland",
+  "linkedin_distance_miles": 40,
+  "queries": [
+    "devops", "platform engineer", "cloud engineer", "site reliability",
+    "system engineer", "integration engineer", "application support",
+    "automation engineer", "junior software engineer"
+  ],
+  "linkedin_queries": [
+    "devops", "platform engineer", "cloud engineer", "system engineer",
+    "application support", "junior software engineer"
+  ],
+  "workday_queries": ["devops", "cloud", "platform", "system engineer", "support", "junior"],
+  "skip_title": "senior|\\bsr\\b|lead|leiter|head|principal|architect|director|\\bvp\\b|praktik|\\bintern\\b|internship|lehrstelle|lernende",
+  "skip_place": ""
+}

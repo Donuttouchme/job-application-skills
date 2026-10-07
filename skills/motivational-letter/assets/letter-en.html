@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{SUBJECT}}</title>
+<!--
+  GEOMETRY IS LOAD-BEARING, DO NOT MAKE THIS AIRIER.
+  Verified 2026-09-02: at 11pt / line-height 1.5 with 20mm vertical margins, a
+  letter at the skill's own ~350-word budget rendered on TWO pages. One page is
+  not negotiable on this market, so the budget has to fit the template. These
+  values (10.5pt / 1.42, 18mm top, 14mm bottom, tightened block gaps) are taken
+  from a hand-made letter that held 472 words on one page, so 350 fits with room.
+-->
+<style>
+  @page { size: A4; margin: 18mm 18mm 14mm 18mm; }
+
+  html, body {
+    margin: 0; padding: 0;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.42;
+    color: #000;
+    background: #fff;
+  }
+
+  .sender {
+    font-size: 9.5pt;
+    line-height: 1.35;
+    margin-bottom: 10mm;
+  }
+  .sender .name { font-weight: bold; font-size: 11pt; }
+
+  .recipient { line-height: 1.35; margin-bottom: 8mm; }
+
+  .date { text-align: right; margin-bottom: 7mm; }
+
+  .subject { font-weight: bold; margin-bottom: 6mm; }
+
+  .salutation { margin-bottom: 4mm; }
+
+  .body p { margin: 0 0 3.5mm 0; text-align: left; }
+
+  .closing { margin-top: 6mm; }
+
+  .signature img { height: 16mm; margin: 3mm 0 1mm 0; display: block; }
+  .signature .name { margin-top: 2mm; }
+
+</style>
+</head>
+<body>
+
+<div class="sender">
+  <div class="name">{{SENDER_NAME}}</div>
+  <div>{{SENDER_STREET}}</div>
+  <div>{{SENDER_CITY}}</div>
+  <div>{{SENDER_PHONE}}</div>
+  <div>{{SENDER_EMAIL}}</div>
+</div>
+
+<div class="recipient">
+  <div>{{RECIPIENT_COMPANY}}</div>
+  <div>{{RECIPIENT_CONTACT}}</div>
+  <div>{{RECIPIENT_STREET}}</div>
+  <div>{{RECIPIENT_CITY}}</div>
+</div>
+
+<div class="date">{{DATE}}</div>
+
+<div class="subject">{{SUBJECT}}</div>
+
+<div class="salutation">{{SALUTATION}}</div>
+
+<div class="body">
+{{BODY}}
+</div>
+
+<div class="closing">Kind regards,</div>
+
+<div class="signature">
+  {{SIGNATURE_IMAGE}}
+  <div class="name">{{SENDER_NAME}}</div>
+</div>
+
+
+</body>
+</html>

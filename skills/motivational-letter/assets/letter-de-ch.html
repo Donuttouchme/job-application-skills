@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>{{BETREFF}}</title>
+<!--
+  GEOMETRY IS LOAD-BEARING, DO NOT MAKE THIS AIRIER.
+  Verified 2026-09-02: at 11pt / line-height 1.5 with 20mm vertical margins, a
+  letter at the skill's own ~350-word budget rendered on TWO pages. One page is
+  not negotiable on this market, so the budget has to fit the template. These
+  values (10.5pt / 1.42, 18mm top, 14mm bottom, tightened block gaps) are taken
+  from a hand-made letter that held 472 words on one page, so 350 fits with room.
+-->
+<style>
+  /* Layout nach SN 010130. Masse in mm, damit der Druck stimmt. */
+  @page { size: A4; margin: 18mm 15mm 14mm 20mm; }
+
+  html, body {
+    margin: 0; padding: 0;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.42;
+    color: #000;
+    background: #fff;
+  }
+
+  .absender {
+    font-size: 9.5pt;
+    line-height: 1.35;
+    margin-bottom: 10mm;
+  }
+  .absender .name { font-weight: bold; font-size: 11pt; }
+
+  .empfaenger { line-height: 1.35; margin-bottom: 8mm; }
+
+  .datum { text-align: right; margin-bottom: 7mm; }
+
+  .betreff { font-weight: bold; margin-bottom: 6mm; }
+
+  .anrede { margin-bottom: 4mm; }
+
+  .body p { margin: 0 0 4mm 0; text-align: left; }
+
+  .gruss { margin-top: 6mm; }
+
+  .signatur img { height: 16mm; margin: 3mm 0 1mm 0; display: block; }
+  .signatur .name { margin-top: 2mm; }
+
+</style>
+</head>
+<body>
+
+<div class="absender">
+  <div class="name">{{ABSENDER_NAME}}</div>
+  <div>{{ABSENDER_STRASSE}}</div>
+  <div>{{ABSENDER_PLZ_ORT}}</div>
+  <div>{{ABSENDER_TELEFON}}</div>
+  <div>{{ABSENDER_EMAIL}}</div>
+</div>
+
+<div class="empfaenger">
+  <div>{{EMPFAENGER_FIRMA}}</div>
+  <div>{{EMPFAENGER_ZH}}</div>
+  <div>{{EMPFAENGER_STRASSE}}</div>
+  <div>{{EMPFAENGER_PLZ_ORT}}</div>
+</div>
+
+<div class="datum">{{ORT_DATUM}}</div>
+
+<div class="betreff">{{BETREFF}}</div>
+
+<div class="anrede">{{ANREDE}}</div>
+
+<div class="body">
+{{BODY}}
+</div>
+
+<div class="gruss">Freundliche Grüsse</div>
+
+<div class="signatur">
+  {{SIGNATUR_BILD}}
+  <div class="name">{{ABSENDER_NAME}}</div>
+</div>
+
+
+</body>
+</html>
