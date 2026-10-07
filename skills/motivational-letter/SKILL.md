@@ -68,17 +68,29 @@ Create a todo per step and work through them in order.
 8. **Check phrasing against `archive\letters\`.** Report reused openings,
    closings, and paragraph skeletons. Reusing a *story* is fine and expected.
    Same company already in the archive → warn explicitly.
-9. **Draft** from the Profile, Search constraints and approved motivation,
-   within the word budget and in the user's voice per
+9. **Draft and trace.** Draft from the Profile, Search constraints and approved
+   motivation, within the word budget and in the user's voice per
    [`..\cv-writer\VOICE.md`](../cv-writer/VOICE.md): the reason from
-   `motivation.md`, the evidence from `fit.md`.
-10. **Self-check** against [CHECKER.md](CHECKER.md) and fix before showing.
-11. **Write `letter.md`** immediately so it can be edited in an editor, then
-    iterate. **Generate no PDF while iterating.**
-12. **On approval**, produce `letter.pdf` (`scripts/make-pdf.ps1`),
-    `letter.txt` (no letterhead, for ATS fields), `email.md` (subject plus 3–4
-    sentences), and the dossier checklist: CV variant, Arbeitszeugnisse,
-    diplomas.
+   `motivation.md`, the evidence from `fit.md`. Write `letter.md`, `letter.txt`
+   (the plain-text body, with no letterhead), and `letter-trace.md` per
+   [scripts/TRACE-FORMAT.md](scripts/TRACE-FORMAT.md). Trace every sentence;
+   facts may cite only `profile.md`, `company.md`, `motivation.md`, or
+   `search.md`.
+10. **Check before showing any draft.** Self-check against
+    [CHECKER.md](CHECKER.md), then resolve `scripts/check.py` relative to this
+    skill and run `python scripts/check.py phrases letter.txt --document-type
+    letter --language <en|de-ch>` and `python scripts/check.py trace letter.txt
+    --document-type letter --trace letter-trace.md --profile
+    ~/job-search/profile.md --company company.md --motivation motivation.md
+    --search ~/job-search/search.md`. Fix every blocking finding before showing
+    any letter content.
+11. **Iterate** in `letter.md`. Regenerate `letter.txt` and `letter-trace.md`
+    and rerun both checks after every change before showing the revision.
+    **Generate no PDF while iterating.**
+12. **On approval**, produce `letter.pdf` (`scripts/make-pdf.ps1`), `email.md`
+    (subject plus 3–4 sentences), and the dossier checklist: CV variant,
+    Arbeitszeugnisse, diplomas. Regenerate the plain text and trace and rerun
+    both checks with the final outputs.
 
 ## Check
 
@@ -103,5 +115,8 @@ never diverge from the source.
 - **Swiss German has no `ß`** — `Grüsse`, `Strasse`, `gemäss`. One `ß` marks the
   letter as written from a German template.
 - **Never exceed the word budget.** One page is not negotiable on this market.
+- **Never show unchecked output.** `letter.txt` and `letter-trace.md` are
+  regenerated together, and both the phrase and letter trace checks pass
+  before the first draft and every revision is shown.
 - `~/job-search/` holds personal data. It is never transmitted anywhere and
   never goes under version control.

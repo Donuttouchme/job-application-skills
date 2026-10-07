@@ -1,7 +1,9 @@
 """Shared checks for finished plain-text CVs and letters (standard library only).
 
   python check.py phrases <document.txt> --document-type cv|letter --language en|de-ch
-  python check.py trace <document.txt> --document-type cv --trace <trace.md> --profile <profile.md>
+  python check.py trace <document.txt> --document-type cv|letter --trace <trace.md>
+      --profile <profile.md> [--company <company.md> --motivation <motivation.md>
+      --search <search.md>]
 
 Exit codes: 0 clean, 1 blocking findings, 2 input or installation error.
 """
@@ -187,6 +189,44 @@ def citation_profile_status(excerpt, profile, ranges):
     return "forbidden", forbidden
 
 
+def letter_units(document):
+    """Return (starting line, sentence) units from a plain-text letter."""
+    units = []
+    paragraph_start = 0
+    paragraphs = []
+    for separator in re.finditer(r"(?:\r?\n)[ \t]*(?:\r?\n)+", document):
+        paragraphs.append((paragraph_start, separator.start()))
+        paragraph_start = separator.end()
+    paragraphs.append((paragraph_start, len(document)))
+    for paragraph_start, paragraph_end in paragraphs:
+        paragraph = document[paragraph_start:paragraph_end]
+        protected_dots = set()
+        for abbreviation in (
+            "z. B.", "z. H.", "d. h.", "u. a.", "ca.", "Dr.", "Nr.",
+            "e.g.", "i.e.", "etc.",
+        ):
+            for match in re.finditer(re.escape(abbreviation), paragraph, re.IGNORECASE):
+                protected_dots.update(
+                    offset for offset in range(match.start(), match.end())
+                    if paragraph[offset] == "."
+                )
+        sentence_start = 0
+        sentence_ends = [
+            match.end() for match in re.finditer(r"[.!?](?=\s|$)", paragraph)
+            if match.start() not in protected_dots
+        ]
+        sentence_ends.append(len(paragraph))
+        for sentence_end in sentence_ends:
+            raw_unit = paragraph[sentence_start:sentence_end]
+            unit = raw_unit.strip()
+            if unit:
+                leading = len(raw_unit) - len(raw_unit.lstrip())
+                unit_start = paragraph_start + sentence_start + leading
+                units.append((document.count("\n", 0, unit_start) + 1, unit))
+            sentence_start = sentence_end
+    return units
+
+
 def check_trace(args):
     try:
         document = args.document.read_text(encoding="utf-8")
@@ -198,11 +238,16 @@ def check_trace(args):
     except (OSError, UnicodeError) as exc:
         print(f"error: cannot read trace {args.trace}: {exc}", file=sys.stderr)
         return 2
-    try:
-        profile = args.profile.read_text(encoding="utf-8")
-    except (OSError, UnicodeError) as exc:
-        print(f"error: cannot read source profile.md at {args.profile}: {exc}", file=sys.stderr)
-        return 2
+    sources = {}
+    if args.document_type == "cv":
+        try:
+            sources["profile.md"] = args.profile.read_text(encoding="utf-8")
+        except (OSError, UnicodeError) as exc:
+            print(
+                f"error: cannot read source profile.md at {args.profile}: {exc}",
+                file=sys.stderr,
+            )
+            return 2
     try:
         entries = parse_trace(trace_text)
     except ValueError as exc:
@@ -217,18 +262,25 @@ def check_trace(args):
                 file=sys.stderr,
             )
             return 2
-        if item["category"] not in {"fact", "heading", "contact"}:
+        categories = {"fact", "heading", "contact"}
+        if args.document_type == "letter":
+            categories.update({"salutation", "motivation", "closing"})
+        if item["category"] not in categories:
+            document_label = "CV" if args.document_type == "cv" else "letter"
             print(
                 f"error: cannot parse trace {args.trace}: entry at line {item['line']} has "
-                f"unsupported CV category {item['category']!r}",
+                f"unsupported {document_label} category {item['category']!r}",
                 file=sys.stderr,
             )
             return 2
 
-    document_units = [
-        (number, line) for number, line in enumerate(document.splitlines(), 1)
-        if line.strip()
-    ]
+    if args.document_type == "letter":
+        document_units = letter_units(document)
+    else:
+        document_units = [
+            (number, line) for number, line in enumerate(document.splitlines(), 1)
+            if line.strip()
+        ]
     document_unit_text = {line for _, line in document_units}
     traced = {item.get("unit") for item in entries}
     untraced = [item for item in document_units if item[1] not in traced]
@@ -249,26 +301,61 @@ def check_trace(args):
     forbidden_excerpts = {"voice": [], "never": [], "needed": []}
     history_citations = []
     disallowed_sources = []
-    profile_ranges = forbidden_profile_ranges(profile)
+    allowed_sources = {"profile.md"}
+    if args.document_type == "letter":
+        allowed_sources.update({"company.md", "motivation.md", "search.md"})
+    source_paths = {
+        "profile.md": args.profile,
+        "company.md": args.company,
+        "motivation.md": args.motivation,
+        "search.md": args.search,
+    }
+    profile_ranges = None
     for item in entries:
         for citation in item["citations"]:
-            if not normalise_whitespace(citation["excerpt"]):
-                continue
             source_basename = citation["source"].replace("\\", "/").rsplit("/", 1)[-1]
             if source_basename.casefold() == "profile-history.md":
                 history_citations.append(citation)
                 continue
-            if citation["source"] != "profile.md":
+            if citation["source"] not in allowed_sources:
                 disallowed_sources.append(citation)
                 continue
-            status, regions = citation_profile_status(
-                citation["excerpt"], profile, profile_ranges,
-            )
-            if status == "missing":
+            source_name = citation["source"]
+            if source_name not in sources:
+                source_path = source_paths[source_name]
+                if source_path is None:
+                    print(
+                        f"error: no path supplied for cited source {source_name}",
+                        file=sys.stderr,
+                    )
+                    return 2
+                try:
+                    sources[source_name] = source_path.read_text(encoding="utf-8")
+                except (OSError, UnicodeError) as exc:
+                    print(
+                        f"error: cannot read source {source_name} at {source_path}: {exc}",
+                        file=sys.stderr,
+                    )
+                    return 2
+            source_text = sources[source_name]
+            if not normalise_whitespace(citation["excerpt"]):
+                continue
+            if source_name == "profile.md":
+                if profile_ranges is None:
+                    profile_ranges = forbidden_profile_ranges(source_text)
+                status, regions = citation_profile_status(
+                    citation["excerpt"], source_text, profile_ranges,
+                )
+                if status == "missing":
+                    excerpts_not_found.append(citation)
+                elif status == "forbidden":
+                    for region in regions:
+                        forbidden_excerpts[region].append(citation)
+            elif (
+                normalise_whitespace(citation["excerpt"])
+                not in normalise_whitespace(source_text)
+            ):
                 excerpts_not_found.append(citation)
-            elif status == "forbidden":
-                for region in regions:
-                    forbidden_excerpts[region].append(citation)
     if untraced:
         print("Untraced units:")
         for number, unit in untraced:
@@ -332,7 +419,8 @@ def check_trace(args):
             or any(forbidden_excerpts.values()) or history_citations
             or disallowed_sources or duplicate_entries or stale_entries):
         return 1
-    print("Clean: every CV unit has a valid trace citation.")
+    document_label = "CV" if args.document_type == "cv" else "letter"
+    print(f"Clean: every {document_label} unit has a valid trace citation.")
     return 0
 
 
@@ -357,9 +445,12 @@ def main():
                      "that a citation exists, not that the document line is accurate."),
     )
     trace.add_argument("document", type=Path, help="finished UTF-8 plain-text document")
-    trace.add_argument("--document-type", choices=("cv",), required=True)
+    trace.add_argument("--document-type", choices=("cv", "letter"), required=True)
     trace.add_argument("--trace", type=Path, required=True, help="UTF-8 Markdown trace")
     trace.add_argument("--profile", type=Path, required=True, help="profile.md source file")
+    trace.add_argument("--company", type=Path, help="company.md source file")
+    trace.add_argument("--motivation", type=Path, help="motivation.md source file")
+    trace.add_argument("--search", type=Path, help="search.md source file")
     trace.set_defaults(run=check_trace)
     args = parser.parse_args()
     return args.run(args)

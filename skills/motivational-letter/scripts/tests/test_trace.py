@@ -143,14 +143,19 @@ class CvTraceCliTests(unittest.TestCase):
                 "Company claim.", "fact",
                 (("company.md", "Company statement."),),
             ),
+            entry(
+                "Motivation claim.", "fact",
+                (("motivation.md", "Motivation statement."),),
+            ),
         ))
-        result = self.run_trace("Former claim.\nCompany claim.\n", trace)
+        result = self.run_trace("Former claim.\nCompany claim.\nMotivation claim.\n", trace)
 
         self.assertEqual(result.returncode, 1, result.stderr)
         self.assertIn("Profile history citations:", result.stdout)
         self.assertIn('trace line 4: "profile-history.md"', result.stdout)
         self.assertIn("Sources not allowed for cv:", result.stdout)
         self.assertIn('trace line 10: "company.md"', result.stdout)
+        self.assertIn('trace line 16: "motivation.md"', result.stdout)
 
     def test_reports_duplicate_and_stale_entries_separately(self):
         trace = "\n\n".join((
