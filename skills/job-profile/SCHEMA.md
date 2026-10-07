@@ -1,8 +1,15 @@
 # Profile Schema
 
-The format of `~/job-search/profile.md`. `cv-writer` and
-`motivational-letter` read this structure, so section headings are a contract —
-rename one and the readers stop finding it.
+`job-profile` owns three documents:
+
+| Document | Purpose | Readers |
+|---|---|---|
+| **Profile** — `~/job-search/profile.md` | current, verified facts that an outgoing document may state | `cv-writer`, `motivational-letter`, `job-scout` |
+| **Profile history** — `~/job-search/profile-history.md` | dated records of facts that were replaced, and why | `job-profile` only; writers never read it |
+| **Search constraints** — `~/job-search/search.md` | practical limits on viable jobs and how they may be stated | `motivational-letter`, `job-scout`; never `cv-writer` |
+
+The section headings below are a reader contract — rename one and the readers
+stop finding it.
 
 ## The `[NEEDED]` convention
 
@@ -15,7 +22,10 @@ and refuse to use it, never as an invitation to guess.
 
 Fill one only with an answer from the user.
 
-## Sections, in order
+## Profile — sections, in order
+
+The Profile is current truth only. It contains no superseded wording or
+correction history.
 
 ### Identity and contact
 
@@ -25,9 +35,9 @@ Anschreiben is malformed without it.
 
 ### Work eligibility
 
-Citizenship, permit type, notice period, earliest start date, relocation or
-commute radius. On the Swiss market a B permit stated plainly ("no sponsorship
-required") removes a real objection, so it belongs here.
+Citizenship, permit type, notice period and earliest start date. These are facts
+that an outgoing document may state. Commute and other practical limits belong
+in Search constraints instead.
 
 ### Salary expectation
 
@@ -152,18 +162,69 @@ claims get made. Note which samples the observations came from.
 
 Never derived from `archive\letters\`.
 
+### Never claim
+
+One-line Never-claim rules left by permanent corrections. Each rule names the
+work it applies to and bans only the inflated claim, not true claims about other
+work. Keep the rule, not its backstory, here; the backstory belongs in Profile
+history.
+
+A temporary limitation — an exam not yet passed or a known gap in a project —
+is a current fact in the relevant Profile section, not a Never-claim rule.
+
 ### Do not mention
 
-Employers, technologies, or claims that must never appear. Readers treat this as
+Off-limits employers, technologies or topics. This is separate from Never
+claim: a Never-claim rule prevents a specific overstatement, while Do not
+mention prevents the topic itself from appearing. Readers treat both as
 absolute.
 
-## Appending during use
+## Profile history
 
-When another skill hits a gap mid-task and the user answers on the spot, the
-answer is appended here in the section it belongs to, in the format above. This
-is how the profile grows into the shape of the jobs actually applied for,
-instead of the shape an upfront questionnaire imagined.
+`~/job-search/profile-history.md` contains one dated entry for each correction:
 
-Two rules for an append: it never overwrites an existing entry without
-confirmation, and a partial answer stays partial — an outcome that was not given
-remains `[NEEDED]` rather than being rounded up into a claim.
+```markdown
+## <YYYY-MM-DD>
+**Document:** <profile.md or search.md>
+**Section:** <section heading>
+**Replaced text:** <the exact text removed>
+**New text:** <the exact replacement>
+**Reason:** <why it changed>
+```
+
+This file preserves what changed without exposing superseded claims to a
+writer. `cv-writer`, `motivational-letter` and `job-scout` never read it.
+
+## Search constraints
+
+`~/job-search/search.md` holds current practical limits, including temporary
+ones:
+
+- **Commute:** home basis, maximum distance or journey time, and remote or
+  relocation limits.
+- **Working hours:** allowed schedule, workload and on-call or shift limits.
+- **Licence:** current driving-licence facts and any resulting limit.
+- **Health parameters:** only the practical parameters needed to judge whether
+  work is viable.
+
+For each constraint, record separately how it may be stated in a letter or
+covering email. A factual limit and permission to disclose it are not the same
+thing. `motivational-letter` and `job-scout` may read this file;
+`cv-writer` never does.
+
+## Updating during use
+
+When another skill hits a gap mid-task and the user answers on the spot, add the
+new fact to the section where it belongs. This is how the Profile and Search
+constraints grow into the shape of the jobs actually applied for, instead of
+the shape an upfront questionnaire imagined.
+
+Correct an existing fact only after the user explicitly confirms the
+replacement. In the same step, replace the old text in place and write the
+dated Profile history entry. For every permanent correction, also add a scoped
+one-line rule under Never claim that bans only the replaced claim. Never keep
+the superseded wording in the Profile or Search constraints.
+
+A partial answer stays partial — an outcome that was not given remains
+`[NEEDED]` rather than being rounded up into a claim. Extend mode follows these
+same rules.

@@ -15,6 +15,8 @@ Swiss market, English or German, chosen by the posting.
 | What | Where |
 |---|---|
 | Profile — the only content source | `~/job-search/profile.md` |
+| Profile history — never read | `~/job-search/profile-history.md` |
+| Search constraints — never read | `~/job-search/search.md` |
 | Templates for reference wording | `~/job-search/cv/` |
 | This application | `~/job-search/applications/YYYY-MM-DD-<company>-<role>/` |
 

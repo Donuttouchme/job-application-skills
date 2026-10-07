@@ -13,6 +13,8 @@ Swiss market: **Motivationsschreiben** (DE-CH) or **cover letter** (EN).
 | What | Where |
 |---|---|
 | Profile | `~/job-search/profile.md` |
+| Search constraints | `~/job-search/search.md` |
+| Profile history — never read | `~/job-search/profile-history.md` |
 | CV variants | `~/job-search/cv/` |
 | Certificates, diplomas | `~/job-search/documents/` |
 | Previous letters | `~/job-search/archive/letters/` |
@@ -20,12 +22,13 @@ Swiss market: **Motivationsschreiben** (DE-CH) or **cover letter** (EN).
 
 ## Routing
 
-1. **No `profile.md`, or one below the ready gate** → invoke the `job-profile`
-   skill. A profile that merely exists is not enough: check its ready gate — a
-   street address, a CHF salary expectation, CEFR levels, the narrative, and at
-   least two stories carrying a measurable outcome, none of them marked
-   `[NEEDED]`. Never write a letter from a profile below the gate; the result is
-   generic filler that reads worse than no letter.
+1. **No `profile.md` or `search.md`, or a Profile below the ready gate** →
+   invoke the `job-profile` skill. A profile that merely exists is not enough:
+   check its ready gate — a street address, a CHF salary expectation, CEFR
+   levels, the narrative, and at least two stories carrying a measurable
+   outcome, none of them marked `[NEEDED]`. Never write a letter from a Profile
+   below the gate; the result is generic filler that reads worse than no
+   letter.
 2. **Posting supplied** (URL or pasted), no letter in play → **Write**.
 3. **Existing letter supplied** → **Check**.
 
@@ -64,7 +67,8 @@ Create a todo per step and work through them in order.
 8. **Check phrasing against `archive\letters\`.** Report reused openings,
    closings, and paragraph skeletons. Reusing a *story* is fine and expected.
    Same company already in the archive → warn explicitly.
-9. **Draft** within the word budget, in the user's voice per
+9. **Draft** from the Profile, Search constraints and approved motivation,
+   within the word budget and in the user's voice per
    [`..\cv-writer\VOICE.md`](../cv-writer/VOICE.md): the reason from
    `motivation.md`, the evidence from `fit.md`.
 10. **Self-check** against [CHECKER.md](CHECKER.md) and fix before showing.
@@ -89,9 +93,10 @@ never diverge from the source.
 ## Hard rules
 
 - **Verifiable claims** — numbers, employers, technologies, durations,
-  outcomes, company facts — come only from `profile.md` and `company.md`.
-  Motivation and framing are free. The test: *if an interviewer asks about this
-  sentence, is there a source that supports it?*
+  outcomes, company facts and practical limits — come only from `profile.md`,
+  `search.md` and `company.md`. Motivation comes from `motivation.md`; framing
+  is free. Never read `profile-history.md`. The test: *if an interviewer asks
+  about this sentence, is there a source that supports it?*
 - **Never invent** a company fact, an address, a contact name, or a figure.
   Ask instead.
 - **Swiss German has no `ß`** — `Grüsse`, `Strasse`, `gemäss`. One `ß` marks the
