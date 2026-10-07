@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Lebenslauf – {{NAME}}</title>
+<!--
+  Klassisch CV template, adapted from the approved one-page design.
+  Placeholders: NAME, ROLE_LINE, CONTACT, PERSONAL, PHOTO, PROFILE,
+  SKILL_ROWS, EXPERIENCE, PROJECTS, EDUCATION, LANGUAGES.
+  Escape all profile text for HTML. CONTACT is inline text/links separated by
+  middle dots; PERSONAL is nationality and residence permit, separated by a
+  middle dot (empty when unavailable). PHOTO is empty or exactly:
+    <img class="photo" src="photo.<ext>" alt="">
+  The only allowed image is the optional header photo. No tables; real text.
+  Replace angle-bracket field names below with escaped shared content.
+  Repeat <li> once per selected bullet; do not introduce facts for layout.
+  Single column; title/date pairs are row labels, not a column layout.
+  Exact repeated fragments:
+  Job (one block per position, newest first):
+    <p class="company"><Employer></p>
+    <div class="job-head"><span class="job-title"><Title></span><span class="date"><Dates></span></div>
+    <ul><li><Bullet></li></ul>
+  Project:
+    <div class="project"><div class="job-head"><span class="job-title"><Project name>
+    (personal)</span><span class="link"><Project link></span></div><p><Description></p></div>
+  Education row:
+    <div class="job-head"><span><b><Degree></b> · <Institution></span>
+    <span class="date"><Dates></span></div>
+  Skill row:
+    <p class="skill"><b><Category>:</b> <Skills></p>
+  LANGUAGES: inline <Language> (<CEFR>) entries separated by middle dots.
+  Translate the personal-project label to the document language.
+-->
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    font-family: Calibri, Carlito, "Segoe UI", Arial, sans-serif;
+    font-size: 10pt;
+    line-height: 1.3;
+    color: #1f2328;
+  }
+  .page { width: 210mm; min-height: 297mm; padding: 13mm 16mm 11mm 16mm; }
+  .header { display: flex; justify-content: space-between; align-items: flex-start;
+            gap: 8mm; padding-bottom: 3mm; border-bottom: 1.5pt solid #1d4e6e; }
+  .name { font-size: 22pt; font-weight: 700; color: #1d4e6e; margin: 0; letter-spacing: .2pt; }
+  .role { font-size: 12pt; font-weight: 600; color: #3b4652; margin: .6mm 0 2mm 0; }
+  .contact, .personal { font-size: 9.5pt; color: #4a5560; margin: 0; }
+  .personal { margin-top: .8mm; }
+  .sep { color: #9aa5b0; padding: 0 1.2mm; }
+  .nw { white-space: nowrap; }
+  .photo { width: 27mm; height: 36mm; object-fit: cover; border-radius: 1mm; flex: none; }
+  h2 { font-size: 10.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2pt;
+       color: #1d4e6e; margin: 4.2mm 0 1.6mm 0; padding-bottom: .6mm; border-bottom: .6pt solid #c8d2da; }
+  p { margin: 0 0 1mm 0; }
+  .company { font-weight: 700; color: #1f2328; margin: 2mm 0 .3mm 0; }
+  .company .former { font-weight: 400; color: #5b6670; }
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; margin-top: 1mm; }
+  .job-title { font-weight: 600; color: #1d4e6e; }
+  .date { font-size: 9.5pt; color: #5b6670; white-space: nowrap; padding-left: 4mm; }
+  ul { margin: .8mm 0 0 0; padding-left: 4.6mm; }
+  li { margin-bottom: .5mm; }
+  li::marker { color: #1d4e6e; }
+  .skill { margin-bottom: .6mm; }
+  .skill b { color: #3b4652; }
+  .project { margin-top: 1.4mm; }
+  .link { color: #1d4e6e; font-size: 9.5pt; }
+  @media print { .page { min-height: 0; } }
+  .personal:empty { display: none; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div>
+      <p class="name">{{NAME}}</p>
+      <p class="role">{{ROLE_LINE}}</p>
+      <p class="contact">{{CONTACT}}</p>
+      <p class="personal">{{PERSONAL}}</p>
+    </div>
+    {{PHOTO}}
+  </div>
+
+  <h2>Kurzprofil</h2>
+  <p>{{PROFILE}}</p>
+
+  <h2>Technische Fähigkeiten</h2>
+  {{SKILL_ROWS}}
+
+  <h2>Berufserfahrung</h2>
+  {{EXPERIENCE}}
+
+  <h2>Projekte</h2>
+  {{PROJECTS}}
+
+  <h2>Ausbildung</h2>
+  {{EDUCATION}}
+
+  <h2>Sprachen</h2>
+  <p>{{LANGUAGES}}</p>
+</div>
+</body>
+</html>

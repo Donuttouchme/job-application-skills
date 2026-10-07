@@ -5,7 +5,7 @@
 #
 # Exits non-zero and explains itself on failure. Never fails silently.
 #
-# TWIN FILE: an identical copy lives in cv-writer\scripts\make-pdf.ps1.
+# TWIN FILE: identical copies live in cv-writer and motivational-letter scripts.
 # Duplicated on purpose - coupling two skills through a cross-directory path is
 # more fragile than maintaining a twin. Change both together.
 
@@ -45,8 +45,11 @@ Open it in a browser and use Ctrl+P -> Save as PDF (A4, no headers/footers).
     exit 2
 }
 
-$htmlFull = (Resolve-Path -LiteralPath $Html).Path
-$uri = ([System.Uri]$htmlFull).AbsoluteUri
+# Resolve against the caller's PowerShell location, not the browser's working
+# directory. The provider also expands a leading ~; the PDF need not exist yet.
+$Html = (Resolve-Path -LiteralPath $Html).Path
+$Pdf = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($Pdf)
+$uri = ([System.Uri]$Html).AbsoluteUri
 
 # A throwaway profile avoids clashing with a running browser instance.
 $profileDir = Join-Path $env:TEMP ("letter-pdf-" + [guid]::NewGuid().ToString('N'))

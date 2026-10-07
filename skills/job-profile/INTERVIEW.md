@@ -43,6 +43,10 @@ in the same step.
 Short and factual. Street address, notice period, earliest start and salary
 expectation in CHF belong in the Profile.
 
+Optionally ask for a professional colour photo with a neutral background:
+record its path (or `none`) as Photo under Identity and contact, for the CV
+header only. This is never blocking; do not delay the ready gate for a photo.
+
 Commute, working hours, licence and health parameters belong in Search
 constraints. For each one, ask how it may be stated in a letter or covering
 email. A temporary limitation is a current constraint, not a Never-claim rule.

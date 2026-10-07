@@ -6,11 +6,36 @@
 <!--
   Canonical CV template. The CSS is taken unchanged from the user's own
   September-generation variants, which are known to render one A4 page.
+  Additions below only support the personal line and optional header photo.
 
   ATS constraints - binding, do not "improve" these away:
-    single column, no images, no tables, real text.
+    single column, no images except the optional header photo, no tables, real text.
   The .job-head flex row is a title/date pair, not a column layout: document
   order stays title-then-date, so text extraction is unaffected.
+  Placeholders: NAME, ROLE_LINE, CONTACT, PERSONAL, PHOTO, PROFILE,
+  SKILL_ROWS, EXPERIENCE, PROJECTS, EDUCATION, LANGUAGES.
+  Escape all profile text for HTML. CONTACT is inline text/links separated by
+  middle dots; PERSONAL is nationality and residence permit, separated by a
+  middle dot (empty when unavailable). PHOTO is empty or exactly:
+    <img class="photo" src="photo.<ext>" alt="">
+  The only allowed image is the optional header photo. No tables; real text.
+  Replace angle-bracket field names below with escaped shared content.
+  Repeat <li> once per selected bullet; do not introduce facts for layout.
+  Exact repeated fragments:
+  Job:
+    <div class="job"><div class="job-head"><span class="job-title"><Title>
+    <span class="emp"> · <Employer></span></span><span class="job-date"><Dates></span></div>
+    <ul><li><Bullet></li></ul></div>
+  Project:
+    <div class="job"><div class="job-head"><span class="job-title"><Project name>
+    (personal)</span><span class="link"><Project link></span></div><p><Description></p></div>
+  Education row:
+    <div class="job-head"><span><b><Degree></b> · <Institution></span>
+    <span class="job-date"><Dates></span></div>
+  Skill row:
+    <div class="skill-row"><span class="skill-cat"><Category>:</span> <Skills></div>
+  LANGUAGES: inline <Language> (<CEFR>) entries separated by middle dots.
+  Translate the personal-project label to the document language.
 -->
 <style>
   @page { size: A4; margin: 10mm 14mm 9mm 14mm; }
@@ -64,6 +89,11 @@
   .skill-cat { font-weight: 700; color: #333; }
   .link { color: #0b3d62; }
   .note { font-style: italic; color: #444; margin: 3px 0 2px 0; }
+  .header { position: relative; }
+  .header:has(> .photo) { min-height: calc(36mm + 8px); padding-right: 35mm; }
+  .photo { position: absolute; top: 0; right: 0; width: 27mm; height: 36mm; object-fit: cover; }
+  .personal { font-size: 9pt; color: #555; }
+  .personal:empty { display: none; }
 </style>
 </head>
 <body>
@@ -72,6 +102,8 @@
     <p class="name">{{NAME}}</p>
     <p class="role">{{ROLE_LINE}}</p>
     <div class="contact">{{CONTACT}}</div>
+    <div class="personal">{{PERSONAL}}</div>
+    {{PHOTO}}
   </div>
 
   <h2>Profile</h2>

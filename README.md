@@ -8,7 +8,7 @@ English and Swiss German, and a career change into **DevOps / Platform**.
 |---|---|
 | `job-profile` | Seeds from existing CVs, interviews for gaps, and maintains the Profile, Profile history and Search constraints. |
 | `job-scout` | Searches Swiss job boards and company career pages; returns at most five ranked postings and remembers every posting reviewed. |
-| `cv-writer` | Tailors a one-page, ATS-safe CV from the Profile only; produces plain text, a Trace and an approved PDF. |
+| `cv-writer` | Tailors a one-page, ATS-safe CV from the Profile only in three designs (owner default + klassisch + tabellarisch); produces shared plain text, a Trace and three approved PDFs. |
 | `motivational-letter` | Researches the company, analyses fit, writes or reviews a letter; produces plain text, a Trace, an approved PDF and a covering email. |
 
 **Nothing gets invented.** Unknown facts stay `[NEEDED]` until the owner fills

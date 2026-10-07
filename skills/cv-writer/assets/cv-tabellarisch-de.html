@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Lebenslauf – {{NAME}}</title>
+<!--
+  Tabellarisch CV template, adapted from the approved one-page design.
+  Placeholders: NAME, ROLE_LINE, CONTACT, PERSONAL, PHOTO, PROFILE,
+  SKILL_ROWS, EXPERIENCE, PROJECTS, EDUCATION, LANGUAGES.
+  Escape all profile text for HTML. CONTACT is inline text/links separated by
+  middle dots; PERSONAL is nationality and residence permit, separated by a
+  middle dot (empty when unavailable). PHOTO is empty or exactly:
+    <img class="photo" src="photo.<ext>" alt="">
+  The only allowed image is the optional header photo. No tables; real text.
+  Replace angle-bracket field names below with escaped shared content.
+  Repeat <li> once per selected bullet; do not introduce facts for layout.
+  Single column; the date gutter (.when) labels a row, not a column layout.
+  CONTACT is inline text/links in the metadata's one contact row.
+  Exact repeated fragments:
+  Job:
+    <div class="row"><div class="when"><Dates></div><div class="what">
+    <div class="title"><Title> <span class="org"> · <Employer></span></div>
+    <ul><li><Bullet></li></ul></div></div>
+  Project (leave the date gutter empty unless the shared content has dates):
+    <div class="row"><div class="when"><Dates or empty></div><div class="what">
+    <p><b><Project name> (personal)</b> — <Description><br>
+    <span class="link"><Project link></span></p></div></div>
+  Education row:
+    <div class="row"><div class="when"><Dates></div><div class="what">
+    <span class="title"><Degree></span> <span class="org"> · <Institution></span></div></div>
+  Skill row:
+    <div class="row"><div class="when"><Category></div><div class="what"><Skills></div></div>
+  LANGUAGES: inline <Language> (<CEFR>) entries separated by middle dots;
+  the template supplies their labelled row. Skills and languages belong at the end.
+  Translate the personal-project label to the document language.
+-->
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 9.6pt;
+    line-height: 1.32;
+    color: #222;
+  }
+  .page { width: 210mm; min-height: 297mm; padding: 12mm 16mm 6mm 16mm; }
+  .header { display: flex; justify-content: space-between; align-items: flex-start; gap: 8mm; margin-bottom: 2mm; }
+  .name { font-size: 24pt; font-weight: 400; letter-spacing: .3pt; color: #111; margin: 0; }
+  .name b { font-weight: 700; }
+  .role { font-size: 11.5pt; color: #2a6f6a; font-weight: 700; margin: .6mm 0 2.2mm 0; letter-spacing: .3pt; }
+  .meta { display: grid; grid-template-columns: auto 1fr; column-gap: 4mm; row-gap: .6mm; font-size: 9.2pt; }
+  .meta dt { color: #777; }
+  .meta dd { margin: 0; }
+  .photo { width: 27mm; height: 36mm; object-fit: cover; flex: none; }
+  h2 { font-size: 10pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.4pt; color: #2a6f6a;
+       margin: 3.8mm 0 1.6mm 0; display: flex; align-items: center; gap: 3mm; }
+  h2::after { content: ""; flex: 1; border-top: .6pt solid #cfd8d7; }
+  p { margin: 0 0 1mm 0; }
+  .row { display: grid; grid-template-columns: 31mm 1fr; column-gap: 4mm; margin-bottom: 1.8mm; }
+  .when { color: #666; font-size: 9pt; padding-top: .3mm; }
+  .what .title { font-weight: 700; }
+  .what .org { color: #444; }
+  .what .former { color: #777; }
+  ul { margin: .5mm 0 0 0; padding-left: 4.2mm; }
+  li { margin-bottom: .4mm; }
+  li::marker { color: #2a6f6a; }
+  .label { color: #666; }
+  .link { color: #2a6f6a; }
+  @media print { .page { min-height: 0; } }
+  .personal:empty { display: none; }
+  .personal { font-size: 9.2pt; margin-top: .8mm; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div>
+      <p class="name">{{NAME}}</p>
+      <p class="role">{{ROLE_LINE}}</p>
+      <dl class="meta"><dt>Kontakt</dt><dd>{{CONTACT}}</dd></dl>
+      <p class="personal">{{PERSONAL}}</p>
+    </div>
+    {{PHOTO}}
+  </div>
+
+  <h2>Kurzprofil</h2>
+  <p>{{PROFILE}}</p>
+
+  <h2>Berufserfahrung</h2>
+  {{EXPERIENCE}}
+
+  <h2>Projekte</h2>
+  {{PROJECTS}}
+
+  <h2>Ausbildung</h2>
+  {{EDUCATION}}
+
+  <h2>Kenntnisse</h2>
+  {{SKILL_ROWS}}
+  <div class="row"><div class="when">Sprachen</div><div class="what">{{LANGUAGES}}</div></div>
+</div>
+</body>
+</html>

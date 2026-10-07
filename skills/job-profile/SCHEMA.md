@@ -33,6 +33,10 @@ Table: name, email, phone, city, **street address**, plus optional GitHub,
 LinkedIn, website. The street address exists for the letterhead; a Swiss
 Anschreiben is malformed without it.
 
+Optional **Photo**: path to a professional photo, or `none`. Use a colour photo
+with a neutral background, only in the CV header. An absent Photo never blocks
+the ready gate.
+
 ### Work eligibility
 
 Citizenship, permit type, notice period and earliest start date. These are facts
