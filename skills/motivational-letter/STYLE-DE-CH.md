@@ -99,23 +99,17 @@ knowing to discovering it at interview.
 
 ## Banned
 
-Openers:
-- `Hiermit bewerbe ich mich um die Stelle als …`
-- `Mit grossem Interesse habe ich Ihre Stellenanzeige gelesen …`
-- `Auf der Suche nach einer neuen Herausforderung …`
+Literal banned phrases for both languages, CVs and letters live in
+[`scripts/banned-phrases.txt`](scripts/banned-phrases.txt), one UTF-8 phrase per
+line. Run the shared check:
 
-Empty phrases:
-- `teamfähig, flexibel, belastbar` — the empty triad
-- `Ich bin ein absoluter Teamplayer`
-- `umfassende Erfahrung`, `fundierte Kenntnisse` with nothing behind them
-- `Ihr innovatives Unternehmen` when `company.md` names nothing specific
+```sh
+python scripts/check.py phrases <document.txt> --document-type letter --language de-ch
+```
 
-AI tells in German:
-- `In der heutigen schnelllebigen Welt …`
+The script checks literal phrases case-insensitively and blocks any `ß` in a
+de-ch document. It does not judge sentence shape or repetition. These structural
+AI tells still need a prose review:
 - `nicht nur … sondern auch`
 - `Darüber hinaus` opening three paragraphs in a row
-- nominal style: `zur Durchführung der Optimierung` where a verb would do
-
-Worn closer:
-- `Über eine Einladung zu einem persönlichen Gespräch freue ich mich sehr` —
-  near-obligatory, so vary the wording rather than reproducing it verbatim.
+- nominal style and chains of nouns where a verb would do
