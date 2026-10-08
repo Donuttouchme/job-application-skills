@@ -63,11 +63,19 @@ into a situation report.
 
 - Write **three to five connected first-person sentences**: `I` in English,
   `ich` in German.
-- Open with a personal hook drawn from a self-description in the Profile. Then
-  connect what the user built or changed to why it mattered, show how they
-  worked with people, and finish with where they are heading.
-- Make that direction fit the lane and acknowledge a genuine experience gap
-  plainly, without apology or an unsupported title claim.
+- Open with a personal hook drawn from a self-description in the Profile. Use
+  the user's own words verbatim, or a faithful translation in the other
+  language; never a weaker paraphrase (*"I like understanding why"* for *"I
+  like knowing why something works, not just that it does"*).
+- Then connect what the user built or changed to why it mattered. Say the
+  stakes in plain words when the Profile records them (for example, why a
+  mistake in that domain is costly). Show how they worked with people, and
+  finish with where they are heading.
+- Make that direction fit the lane and end on it, stated positively. Name at
+  most one gap, the lane-level one (for example, no professional experience in
+  the target field yet), and never as the closing sentence. Technology-level
+  limits (one language at coursework level, a tool not yet used) belong in the
+  skills section's evidence levels or in a letter, not in this paragraph.
 - Trace every fact and self-description to `profile.md`. The hook changes the
   voice rule, not the evidence rule.
 
