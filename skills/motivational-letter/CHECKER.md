@@ -13,9 +13,10 @@ mode and the write pipeline. Also read the selected `STYLE-EN.md` or
 | 🟡 **weakening** | send-able, but the letter is worse for it |
 | ⚪ **cosmetic** | rhythm, repetition, polish |
 
-Blocking, exhaustively: a claim with no source; a misread requirement; a `ß` in
-a Swiss letter; a missing `Gehaltsvorstellung` or `Eintrittstermin` the posting
-asked for; a missing recipient block in a DE-CH letter; over the word budget.
+Blocking, exhaustively: a claim with no source; a misread requirement; a whole
+paragraph of disconnected facts; a `ß` in a Swiss letter; a missing
+`Gehaltsvorstellung` or `Eintrittstermin` the posting asked for; a missing
+recipient block in a DE-CH letter; over the word budget.
 
 ## 1. Fit to the posting
 
@@ -37,6 +38,13 @@ other three — **never present a partial review as complete**.
 - Nominal style — `zur Durchführung der Optimierung` instead of a verb
 - **Sentence complexity above the user's CEFR level in `profile.md`** → 🟡. A
   letter that outruns its writer produces an interview that contradicts it.
+- Two consecutive sentences with no meaningful link of reason, consequence,
+  contrast, time or shared subject → 🟡. A transition word alone is not a link.
+- A whole paragraph that stacks disconnected facts → 🔴.
+- Personal context such as a move, language learning or a career change placed
+  before the job-relevant lead story → 🟡.
+- Departure circumstances, explanations for unfinished work or another detail
+  better left for a conversation → 🟡.
 - DE-CH: any `ß` → 🔴. Also check `Strasse`, `Grüsse`, `gemäss`, and `CHF` with
   an apostrophe thousands separator (`CHF 95'000`).
 
@@ -44,7 +52,7 @@ other three — **never present a partial review as complete**.
 
 The writer runs the single shared list in `scripts/banned-phrases.txt` before
 launching the checker. Also check every rule in `..\cv-writer\VOICE.md`
-(staging, sentence openings, paragraph shape, the read-aloud test). Beyond
+(cohesion, sentence openings, paragraph shape, the read-aloud test). Beyond
 that, the structural tells:
 
 - tricolons — "planned, built, and delivered" three times in one letter
@@ -76,7 +84,8 @@ The operative test, applied sentence by sentence:
 - **Inference** from profile evidence ("Kubernetes → comfortable with
   containerised deployments") → 🟡, always flagged so the user decides. Allowed,
   never silent.
-- Motivation, interest, and framing need no source. Do not flag them.
+- Motivation and interest must follow `motivation.md` as required under
+  Authenticity; non-factual framing needs no source.
 
 For every fact in `letter-trace.md`, compare the whole letter unit with its
 cited excerpt, not merely the source file. A real, verbatim excerpt does not

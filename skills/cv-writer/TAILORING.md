@@ -13,12 +13,28 @@ make that mechanical rather than a judgement call made under page pressure.
 | Professional Experience | bullet **wording** and order; selection among non-`[core]` bullets | dropping a **`[core]`** bullet; dates, titles, employers; what happened |
 | Projects | which 2–3 appear, and their order | describing a personal project so it reads as professional work |
 | Education | order only | anything |
+| Interests | optional one-line section; order of confirmed items | adding an interest the owner has not confirmed may appear on the CV |
 | Languages | nothing | must match the profile's CEFR values exactly |
 
 Positions and projects are treated differently on purpose. Positions describe
 the professional record, so the `[core]` bullets — the ones without which the
 role reads as a different job — always travel. Projects are a portfolio, where
 selection is normal and everyone does it.
+
+## Document language
+
+Write everything in the document's language except proper names, product names
+and official titles. Translate Profile wording, including explanatory notes
+such as a company's former-name parenthetical; the company names inside the
+note remain proper names. Translation changes language, never meaning.
+
+## Content density
+
+Use the one A4 page to make the relevant evidence and the person behind it
+clear. Do not optimise for the fewest possible words: keep connected Profile
+prose, useful context, and a short recorded consequence in a bullet when they
+fit. If the shared content does not fit every design, apply the skill's *When it
+will not fit one page* rules in their stated order.
 
 ## The six rules
 

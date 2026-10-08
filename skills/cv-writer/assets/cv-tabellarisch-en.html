@@ -6,7 +6,7 @@
 <!--
   Tabellarisch CV template, adapted from the approved one-page design.
   Placeholders: NAME, ROLE_LINE, CONTACT, PERSONAL, PHOTO, PROFILE,
-  SKILL_ROWS, EXPERIENCE, PROJECTS, EDUCATION, LANGUAGES.
+  SKILL_ROWS, EXPERIENCE, PROJECTS, EDUCATION, INTERESTS, LANGUAGES.
   Escape all profile text for HTML. CONTACT is inline text/links separated by
   middle dots; PERSONAL is nationality and residence permit, separated by a
   middle dot (empty when unavailable). PHOTO is empty or exactly:
@@ -29,9 +29,11 @@
     <div class="row"><div class="when"><Dates></div><div class="what">
     <span class="title"><Degree></span> <span class="org"> · <Institution></span></div></div>
   Skill row:
-    <div class="row"><div class="when"><Category></div><div class="what"><Skills></div></div>
+    <div class="row"><div class="when"><b><Category></b></div><div class="what"><Skills></div></div>
+  INTERESTS: empty, or this complete one-line row under Skills:
+    <div class="row"><div class="when"><b>Interests</b></div><div class="what"><Items separated by middle dots></div></div>
   LANGUAGES: inline <Language> (<CEFR>) entries separated by middle dots;
-  the template supplies their labelled row. Skills and languages belong at the end.
+  the template supplies their labelled row. Skills, interests and languages belong at the end.
   Translate the personal-project label to the document language.
 -->
 <style>
@@ -98,6 +100,7 @@
 
   <h2>Skills</h2>
   {{SKILL_ROWS}}
+  {{INTERESTS}}
   <div class="row"><div class="when">Languages</div><div class="what">{{LANGUAGES}}</div></div>
 </div>
 </body>

@@ -96,6 +96,12 @@ quietly resolve the tension in favour of length.
 
 Degree, institution, years. Thesis topic where it is still relevant evidence.
 
+### Interests (optional)
+
+One-line items the owner has explicitly confirmed may appear on a CV. Omit the
+section when there are none; an interest inferred from other material never
+belongs here.
+
 ### Stories
 
 The highest-value section. Five to eight, each in this shape:
@@ -168,9 +174,15 @@ submission checklist: which Arbeitszeugnisse, which diplomas, which permit.
 
 ### Voice profile
 
-**Observations, not raw text.** Typical sentence length, register, how the user
-hedges, characteristic constructions, whether humour appears, how directly
-claims get made. Note which samples the observations came from.
+Two parts:
+
+- **Hand-written samples:** verbatim text the user wrote without AI assistance
+  and explicitly approved as a voice reference. Keep the sample's language and
+  enough context to understand what kind of writing it is.
+- **How this translates to applications:** observations from those samples —
+  typical sentence length, register, how the user hedges, characteristic
+  constructions, whether humour appears and how directly claims get made.
+  Record which samples support each observation.
 
 Never derived from `archive\letters\`.
 

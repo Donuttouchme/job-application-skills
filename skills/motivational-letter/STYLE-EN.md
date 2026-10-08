@@ -34,16 +34,33 @@ settling for the generic form.
 Three or four, uneven in length. Aim for **200–280 words**; 350 is the ceiling,
 not the target.
 
-1. **Why** — the user's reason, from `motivation.md`, in a sentence or two. Use
-   a company fact only when it genuinely *is* the reason; never recite the
-   posting or the company's news back to them. Never open by announcing that you
-   are applying; the subject line already did that.
-2. **One story** — the *lead argument* from `fit.md`, told as what it was like:
-   the situation, what the user did, what they took from it, with the number
-   where the profile has one. Skip what the CV says.
-3. **The gap** — only if `fit.md` has an *acknowledge and defuse* row: one
-   sentence, then move on. Often this paragraph does not exist.
-4. **Close** — availability, salary if asked, an invitation to talk.
+1. **Job-relevant story first** — lead with the *lead argument* from `fit.md`,
+   told as what it was like: the situation, the people or pressure, what the
+   user did and why it mattered, with the number where the Profile has one.
+   Connect the opening to the user's reason only when `motivation.md` records
+   that reason. Never open by announcing an application; the subject line
+   already did that.
+2. **What the user would bring** — connect the story's evidence to the work in
+   this role without repeating CV bullets. If `fit.md` has an *acknowledge and
+   defuse* row, name the gap once in this paragraph, without apology, then move
+   forward. Often there is no gap sentence.
+3. **Reason for the search** — place recorded personal context such as a move,
+   language learning or a career change here, not in the opening. State facts
+   only from their allowed sources, and present them as a reason for the search
+   only when `motivation.md` records that connection. Use a company fact only
+   when it genuinely is part of that recorded reason; never recite the posting
+   or company news back to its author.
+4. **Practicals and a specific close** — availability, salary if asked, then a
+   friendly invitation to discuss the role, story or shared problem rather than
+   a line that could close any application.
+
+Each sentence must develop a reason, detail or consequence from the sentence
+before it. Use plain causal, contrasting or time links where they are true; do
+not join unrelated facts with a transition word.
+
+Leave departure circumstances, explanations for unfinished work and similar
+details for a conversation. The letter gives the relevant work and direction,
+not an account of how a previous role ended.
 
 ## Register
 

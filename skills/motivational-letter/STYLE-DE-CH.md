@@ -71,23 +71,43 @@ Herren` only when there is genuinely no name. Never `du`.
 Three or four, uneven in length. Aim for **180–250 words**; 300 is the ceiling,
 not the target.
 
-1. **Why** — the user's reason, from `motivation.md`, in a sentence or two. Use
-   a company fact only when it genuinely *is* the reason; never recite the
-   posting or the company's news back to them, they wrote it. Never describe
-   the act of applying.
-2. **One story** — the *lead argument* from `fit.md`, told as what it was like:
-   the situation, what the user did, what they took from it. One story with
-   context beats four facts the CV already lists. Skip what the CV says.
-3. **The gap** — only if `fit.md` has an *acknowledge and defuse* row: one
-   sentence, then move on. Often this paragraph does not exist.
-4. **Close** — availability (`frühestmöglicher Eintrittstermin`), salary if the
-   posting asked, and an invitation to talk.
+1. **Berufsrelevante Geschichte zuerst** — mit dem *lead argument* aus
+   `fit.md` beginnen und erzählen, wie die Situation war: die Menschen oder
+   der Druck, was der Nutzer tat und warum es wichtig war. Eine Zahl nur
+   verwenden, wenn sie im Profil steht. Den Einstieg nur dann mit dem Grund des
+   Nutzers verbinden, wenn `motivation.md` diesen Grund festhält. Nicht den Akt
+   der Bewerbung beschreiben; dafür steht der Betreff.
+2. **Was der Nutzer einbringt** — die Evidenz aus der Geschichte mit der Arbeit
+   in dieser Rolle verbinden, ohne Lebenslaufpunkte nachzuerzählen. Wenn
+   `fit.md` eine Zeile *acknowledge and defuse* enthält, die Lücke hier einmal
+   ohne Entschuldigung nennen und dann weitergehen. Oft braucht es keinen Satz
+   zur Lücke.
+3. **Grund für die Suche** — erfassten persönlichen Kontext wie einen Umzug,
+   das Sprachenlernen oder einen Berufswechsel hier einordnen, nicht am Anfang.
+   Fakten stammen nur aus den erlaubten Quellen; als Grund für die Suche gelten
+   sie nur, wenn `motivation.md` diese Verbindung festhält. Eine Unternehmens-
+   tatsache nur verwenden, wenn sie wirklich Teil dieses erfassten Grundes ist;
+   Stellenanzeige und Unternehmensnachrichten nicht ihren Verfassern
+   nacherzählen.
+4. **Praktisches und konkreter Abschluss** — Verfügbarkeit
+   (`frühestmöglicher Eintrittstermin`), Gehalt falls verlangt und danach eine
+   freundliche Einladung, über die Rolle, die Geschichte oder das gemeinsame
+   Problem zu sprechen. Keine Schlusszeile verwenden, die zu jeder Bewerbung
+   passen würde.
+
+Jeder Satz entwickelt einen Grund, ein Detail oder eine Folge aus dem Satz
+davor. Schlichte kausale, gegensätzliche oder zeitliche Verbindungen verwenden,
+wenn sie stimmen; unverbundene Fakten nicht mit einem Übergangswort verkleben.
+
+Umstände eines Austritts, Erklärungen für unfertige Arbeit und ähnliche Details
+gehören ins Gespräch. Das Schreiben zeigt die relevante Arbeit und Richtung,
+nicht den Ablauf am Ende einer früheren Stelle.
 
 ## Register
 
 Polite and personal: a well-written email to someone you respect, not an
-official letter to an authority. Short sentences, active voice, `ich` where the
-user did something. Swiss readers dislike American-style self-promotion and
+official letter to an authority. Varied sentence rhythm, active voice, `ich`
+where the user did something. Swiss readers dislike American-style self-promotion and
 equally dislike *Amtsdeutsch*: `bezüglich`, `diesbezüglich`, `im Rahmen von`,
 `hinsichtlich`, chains of nouns. Hedging (`Ich denke, dass ich eventuell…`) is
 the third failure. State what happened, say why it matters to the user, and

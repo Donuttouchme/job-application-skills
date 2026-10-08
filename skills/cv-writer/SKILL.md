@@ -61,6 +61,11 @@ Create a todo per step.
      leave `{{PHOTO}}` empty; do not search for a photo or substitute an image.
      A named file that cannot be read is a discrepancy to ask about, not a
      reason to silently choose a different image.
+   - `{{INTERESTS}}` is empty unless the Profile has an Interests section. When
+     present, it is the template's complete optional one-line fragment, using
+     only items the owner confirmed may appear on a CV. Because the placeholder
+     includes its own heading or row label, an empty value leaves no heading or
+     gap.
 6. **Tailor** per [TAILORING.md](TAILORING.md), writing every line per
    [VOICE.md](VOICE.md).
 7. **Write one `cv.txt` and one `cv-trace.md`, then pour that content into
@@ -70,8 +75,9 @@ Create a todo per step.
    every non-empty line as a fact, heading, or contact, and cite facts only to
    `profile.md`. All designs carry identical wording, selections and fact
    order within each section. Only section placement differs: tabellarisch
-   places skills and languages last under Kenntnisse / Skills, as its template
-   specifies. Do not create a separate content selection or Trace per design.
+   places skills, interests and languages last under Kenntnisse / Skills, as
+   its template specifies. Do not create a separate content selection or Trace
+   per design.
    Check all three layouts in A4 print preview: each must fit one page. If any
    does not, apply [When it will not fit one page](#when-it-will-not-fit-one-page)
    to the shared content; the tightest design decides. Never trim per design.

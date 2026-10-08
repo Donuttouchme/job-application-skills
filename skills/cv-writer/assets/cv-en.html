@@ -13,7 +13,7 @@
   The .job-head flex row is a title/date pair, not a column layout: document
   order stays title-then-date, so text extraction is unaffected.
   Placeholders: NAME, ROLE_LINE, CONTACT, PERSONAL, PHOTO, PROFILE,
-  SKILL_ROWS, EXPERIENCE, PROJECTS, EDUCATION, LANGUAGES.
+  SKILL_ROWS, EXPERIENCE, PROJECTS, EDUCATION, INTERESTS, LANGUAGES.
   Escape all profile text for HTML. CONTACT is inline text/links separated by
   middle dots; PERSONAL is nationality and residence permit, separated by a
   middle dot (empty when unavailable). PHOTO is empty or exactly:
@@ -34,6 +34,8 @@
     <span class="job-date"><Dates></span></div>
   Skill row:
     <div class="skill-row"><span class="skill-cat"><Category>:</span> <Skills></div>
+  INTERESTS: empty, or this complete one-line section:
+    <h2>Interests</h2><div class="skill-row"><Items separated by middle dots></div>
   LANGUAGES: inline <Language> (<CEFR>) entries separated by middle dots.
   Translate the personal-project label to the document language.
 -->
@@ -120,6 +122,8 @@
 
   <h2>Education</h2>
   {{EDUCATION}}
+
+  {{INTERESTS}}
 
   <h2>Languages</h2>
   <div class="skill-row">{{LANGUAGES}}</div>

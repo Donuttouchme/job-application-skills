@@ -141,8 +141,9 @@ tenth unfinished one.
 
 Ask the user to write, without AI assistance, one fresh paragraph in English
 about what they did at their last employer and one in German about why they
-want this direction. Store only observations from the writing, not the
-paragraphs themselves.
+want this direction. Store the paragraphs the user approves under *Hand-written
+samples*, then record what their voice implies for applications under *How this
+translates to applications*.
 
 Mark a missing English or German paragraph `[NEEDED]` as a warning. It does not
 block the ready gate when genuine writing in another language or format already
@@ -158,7 +159,8 @@ the checker's whole job is catching exactly that.
 
 From the samples, record observations — typical sentence length, register, how
 the user hedges or does not, recurring constructions, whether humour appears,
-how directly claims are made. Store the observations, not the samples.
+how directly claims are made. Keep approved excerpts with those observations so
+writers can check the interpretation against the user's actual rhythm.
 
 If the user has nothing to hand, ask for one paragraph written fresh on any
 subject. It is a weaker source than real correspondence, but it is genuinely

@@ -16,7 +16,7 @@ against an existing CV.
 | Consistency | against the letter in the same directory, and against the profile's CEFR levels | 🔴 |
 | Format | one A4 page per design (default, klassisch, tabellarisch); single column (the tabellarisch date gutter is a row label, not a column layout); no images except the optional header photo; no tables; real text | 🔴 |
 | Understatement | hedging verbs where the profile records ownership | 🟡 |
-| Voice | every line passes [VOICE.md](VOICE.md): concrete object, plain verb, no evaluative adjective about the user, uneven bullet shape, nothing from the word lists | 🟡 per line; 🔴 when the Profile paragraph is an adjective stack or every bullet shares one template |
+| Voice | every line passes [VOICE.md](VOICE.md): connected first-person Profile with a sourced hook, concrete objects and stakes, plain verbs, varied rhythm, no unsupported self-praise, uneven bullet shape, nothing from the word lists; everything except proper names, product names and official titles is in the document language; skill-row category labels are bold where the template provides them | 🟡 per line; 🟡 for a skill row missing its provided bold category label; 🔴 when the Profile paragraph is an adjective stack or stacks unrelated facts without a hook and connections, every bullet shares one template, or any text that should be translated remains in another language |
 
 ## Trace semantics
 
@@ -72,9 +72,9 @@ they get added properly.
 Then let the user pick. Apply only what was accepted, and re-render every output
 so `cv.html`, `cv-klassisch.html`, `cv-tabellarisch.html`, their three named
 PDFs and the shared `cv.txt` never diverge in content. Fact order within each
-section stays identical; tabellarisch alone moves skills and languages to the
-end. Check every design's one-page fit, and apply any content reduction to all
-outputs, never to just the overflowing design.
+section stays identical; tabellarisch alone moves skills, interests and
+languages to the end. Check every design's one-page fit, and apply any content
+reduction to all outputs, never to just the overflowing design.
 
 ## Calibration
 
